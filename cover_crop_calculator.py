@@ -1,21 +1,22 @@
 # Header
-# Name: Ammishaddai Jacobus
+# Programmer: Ammishaddai Jacobus
 # Date: September 6, 2021
-# Description: This is a crop coverage calculator. It asks the user for the area lenght, the area width and it seeding
-# rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coveraged needed
+# Description: This is a crop coverage calculator. It asks the user for the area length, the area width and it seeding
+# rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coverage needed
 # based on the data that the user inserted.
 
 # display a welcome message
 print('++' * 50)
 print(" ")
 print("The crop cover calculator version 1")
-print("Instructions: You will need the following data: (area Length, area width, and seeding rate) to use this calculator.")
+print("Instructions: You will need the following data: (area Length, area width, and seeding rate) to \
+ use this calculator.")
 print(" ")
 print('++' * 50)
 print(" ")
 """
 This code displays information about the application to the user. Like the name of the application, it's version and
-instructions on what information is needed to succesfully make use of this application.
+instructions on what information is needed to successfully make use of this application.
 """
 
 # get input from the user
@@ -28,18 +29,17 @@ area width takes input about the area width and converts that data into float fo
 """
 
 # calculate miles per gallon
-acerage = (area_length * area_width) / 43560
+acer_age = (area_length * area_width) / 43560
 seeding_rate = float(input("Please type in the seeding rate (lbs): "))
-cover_crop_needed = (acerage * seeding_rate)
+cover_crop_needed = float(acer_age * seeding_rate)
 """
-
+Here we have 3 variables that calculate the acerage, the seeding rate and the total cover crop that is needed.
 """
 
 print(" ")
 print(f"Your total needed crop coverage is: {cover_crop_needed} lbs.")
 """
-
-
+This prints out some empty space line and prints out the totals of the cover crop that is needed to the user.
 """
 
 print(" ")
@@ -47,9 +47,8 @@ print('++' * 50)
 print(" ")
 print("Thank you for making use of our calculator!")
 print(" ")
-print("Designed by JCBSoftware & Design.BV")
 """
-
-
+This prints out some empty space lines
+Some designs to make the calculator look a bit nicer, when users are using it
+And it outputs some thank you message to the user.
 """
-
