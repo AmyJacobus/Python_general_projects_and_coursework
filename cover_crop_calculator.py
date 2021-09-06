@@ -3,15 +3,15 @@
 # Date: September 6, 2021
 # Description: This is a crop coverage calculator. It asks the user for the area length, the area width and it seeding
 # rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coverage needed
-# and outputs the result to the user. This calculator will provide you with both the general rounded up total coverage
-# needed and the exact, most accurate, up to the last decimal total coverage needed for your convenience.
+# and outputs the result to the user.
 
 # displays a welcome message
 print('++' * 50)
 print(" ")
 print("The crop cover calculator version 1")
 print("Instructions: You will need the following data: (area Length, area width, and seeding rate)")
-print("to use this calculator.")
+print("to use this calculator.This calculator will provide you with both the general rounded up total  ")
+print("coverage needed and the exact, most accurate, up to the last decimal total coverage needed.")
 print(" ")
 print('++' * 50)
 print(" ")
