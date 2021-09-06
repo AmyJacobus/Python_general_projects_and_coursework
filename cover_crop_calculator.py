@@ -8,7 +8,8 @@
 # displays a welcome message
 print('++' * 50)
 print(" ")
-print("The crop cover calculator version 1")
+print("                           The crop cover calculator version 1")
+print(" ")
 print("Instructions: You will need the following data: (area Length, area width, and seeding rate)")
 print("to use this calculator.This calculator will provide you with both the general rounded up total  ")
 print("coverage needed and the exact, most accurate, up to the last decimal total coverage needed.")
