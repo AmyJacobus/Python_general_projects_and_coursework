@@ -3,7 +3,8 @@
 # Date: September 6, 2021
 # Description: This is a crop coverage calculator. It asks the user for the area length, the area width and it seeding
 # rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coverage needed
-# outputs the result to the user.
+# and outputs the result to the user. This calculator will provide you with both the general rounded up total coverage
+# needed and the exact, most accurate, up to the last decimal total coverage needed for your convenience.
 
 # displays a welcome message
 print('++' * 50)
@@ -20,7 +21,7 @@ instructions on what information is needed to successfully make use of this appl
 """
 
 # gets input from the user
-area_length = float(input("Please type in the are length(.ft): "))
+area_length = float(input("Please type in the area length(.ft): "))
 area_width = float(input("Please type in the area width(.ft): "))
 """
 These are two variables to take input from the user. Area length takes the user input for the length of the area, and 
@@ -31,28 +32,29 @@ area width takes input about the area width and converts that data into float fo
 # calculations
 acreage = (area_length * area_width) / 43560
 seeding_rate = float(input("Please type in the seeding rate (lbs): "))
+cover_crop_needed_rounded = round(acreage * seeding_rate, 2)
 cover_crop_needed_exact = float(acreage * seeding_rate)
-cover_crop_needed_rounded = round(acreage * seeding_rate)
 """
 Here we have 4 variables that calculate the acreage, the seeding rate,the total cover crop that is needed exactly 
 up to the last decimal number (for more exact and science purposes), and the cover crop needed rounded up in case the
-user wants the general totaal (for the average Joe). Extra, but
+user wants the general total (for the average Joe). Extra, but
 more user friendly that way.
 """
 
 # Display results to user
 print(" ")
-print(f"Your total needed crop coverage is: {cover_crop_needed_exact} lbs to be exact or "
-      f" {cover_crop_needed_rounded} lbs rounded up for you.")
+print(f"Your total needed crop coverage is: {cover_crop_needed_rounded} lbs (rounded up)")
+print(f"Or {cover_crop_needed_exact} lbs to be exact.")
 """
-This prints out some empty space line and prints out the totals of the cover crop that is needed to the user.
+This prints out some empty space line and prints out the totals of the cover crop that is needed to the user. As a float
+total and a rounded up total.
 """
 
 # Goodbye message
 print(" ")
 print('++' * 50)
 print(" ")
-print("Thank you for making use of our calculator!")
+print("Thank you for making use of our crop coverage calculator!")
 print(" ")
 """
 This prints out some empty space lines
