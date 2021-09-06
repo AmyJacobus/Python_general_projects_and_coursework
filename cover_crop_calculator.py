@@ -11,7 +11,7 @@ print(" ")
 print("                           The crop cover calculator version 1")
 print(" ")
 print("Instructions: You will need the following data: (area Length, area width, and seeding rate)")
-print("to use this calculator.This calculator will provide you with both the general rounded up total  ")
+print("to use this calculator.This calculator will provide you with both the general rounded up total")
 print("coverage needed and the exact, most accurate, up to the last decimal total coverage needed.")
 print(" ")
 print('++' * 50)
@@ -22,21 +22,21 @@ instructions on what information is needed to successfully make use of this appl
 """
 
 # gets input from the user
-area_length = float(input("Please type in the area length(.ft): "))
-area_width = float(input("Please type in the area width(.ft): "))
+area_length = float(input("Please type in the area length (.ft): "))
+area_width = float(input("Please type in the area width (.ft): "))
+seeding_rate = float(input("Please type in the seeding rate (lbs): "))
 """
-These are two variables to take input from the user. Area length takes the user input for the length of the area, and 
-area width takes input about the area width and converts that data into float for both variables.
-
+Here are coded 3 variables to take input from the user. Area length takes the user input for the length of the area,
+area width takes input about the area width, and seeding rate takes the input and converts that data into float for 
+all 3 variables into a float.
 """
 
 # calculations
 acreage = (area_length * area_width) / 43560
-seeding_rate = float(input("Please type in the seeding rate (lbs): "))
-cover_crop_needed_rounded = round(acreage * seeding_rate, 2)
 cover_crop_needed_exact = float(acreage * seeding_rate)
+cover_crop_needed_rounded = round(acreage * seeding_rate, 2)
 """
-Here we have 4 variables that calculate the acreage, the seeding rate,the total cover crop that is needed exactly 
+Here we have 3 variables that calculate the acreage,the total cover crop that is needed exactly 
 up to the last decimal number (for more exact and science purposes), and the cover crop needed rounded up in case the
 user wants the general total (for the average Joe). Extra, but
 more user friendly that way.
