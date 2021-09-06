@@ -3,14 +3,14 @@
 # Date: September 6, 2021
 # Description: This is a crop coverage calculator. It asks the user for the area length, the area width and it seeding
 # rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coverage needed
-# based on the data that the user inserted.
+# outputs the result to the user.
 
-# display a welcome message
+# displays a welcome message
 print('++' * 50)
 print(" ")
 print("The crop cover calculator version 1")
-print("Instructions: You will need the following data: (area Length, area width, and seeding rate) to \
- use this calculator.")
+print("Instructions: You will need the following data: (area Length, area width, and seeding rate)")
+print("to use this calculator.")
 print(" ")
 print('++' * 50)
 print(" ")
@@ -19,7 +19,7 @@ This code displays information about the application to the user. Like the name 
 instructions on what information is needed to successfully make use of this application.
 """
 
-# get input from the user
+# gets input from the user
 area_length = float(input("Please type in the are length(.ft): "))
 area_width = float(input("Please type in the area width(.ft): "))
 """
@@ -28,20 +28,27 @@ area width takes input about the area width and converts that data into float fo
 
 """
 
-# calculate miles per gallon
-acer_age = (area_length * area_width) / 43560
+# calculations
+acreage = (area_length * area_width) / 43560
 seeding_rate = float(input("Please type in the seeding rate (lbs): "))
-cover_crop_needed = float(acer_age * seeding_rate)
+cover_crop_needed_exact = float(acreage * seeding_rate)
+cover_crop_needed_rounded = round(acreage * seeding_rate)
 """
-Here we have 3 variables that calculate the acerage, the seeding rate and the total cover crop that is needed.
+Here we have 4 variables that calculate the acreage, the seeding rate,the total cover crop that is needed exactly 
+up to the last decimal number (for more exact and science purposes), and the cover crop needed rounded up in case the
+user wants the general totaal (for the average Joe). Extra, but
+more user friendly that way.
 """
 
+# Display results to user
 print(" ")
-print(f"Your total needed crop coverage is: {cover_crop_needed} lbs.")
+print(f"Your total needed crop coverage is: {cover_crop_needed_exact} lbs to be exact or "
+      f" {cover_crop_needed_rounded} lbs rounded up for you.")
 """
 This prints out some empty space line and prints out the totals of the cover crop that is needed to the user.
 """
 
+# Goodbye message
 print(" ")
 print('++' * 50)
 print(" ")
