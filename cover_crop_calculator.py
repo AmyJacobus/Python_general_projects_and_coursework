@@ -22,8 +22,8 @@ instructions on what information is needed to successfully make use of this appl
 """
 
 # gets input from the user
-area_length = float(input("Please type in the area length (.ft): "))
-area_width = float(input("Please type in the area width (.ft): "))
+area_length = float(input("Please type in the area length (.ft):  "))
+area_width = float(input("Please type in the area width (.ft):   "))
 seeding_rate = float(input("Please type in the seeding rate (lbs): "))
 """
 Here are coded 3 variables to take input from the user. Area length takes the user input for the length of the area,
