@@ -13,6 +13,8 @@ __date__ = 'Sept 12, 2021'
 __status__ = 'Development'
 
 # Welcome message to user
+print()
+print()
 
 # The calc program
 while True:
