@@ -29,8 +29,6 @@ print()
 # While loop to ask for forage samples taken
 while True:
 
-    i = 0  # Initializing the variable at 0
-
     forage_sample = int(input("Please enter the # of forage samples taken (Valid 1-20): "))
     if forage_sample in range(1, 21):  # Stars at 1, finish at 21, 21 will not count (1-20)
         break  # gets out of the loop here if the statement is true
