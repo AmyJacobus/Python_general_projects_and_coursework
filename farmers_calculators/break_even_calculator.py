@@ -171,3 +171,6 @@ def break_even_calculator():
       # Goodbye message
       print(" ")
       print("Thank you for making use of our break even calculator.")
+
+if __name__ == "__main__":
+    break_even_calculator()

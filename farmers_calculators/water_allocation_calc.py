@@ -80,3 +80,6 @@ def water_allocation_calculator():
     print(f'{"=" * 104}')
     print()
     print("Thanks for using our water allocation calculator! End of program! :)")
+
+    if __name__ == "__main__":
+        water_allocation_calculator()

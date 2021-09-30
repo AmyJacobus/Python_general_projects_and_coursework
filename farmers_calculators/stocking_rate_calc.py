@@ -92,3 +92,6 @@ def stocking_rate_calculator():
     print()
     print('*' * 100)
     print()
+
+    if __name__ == "__main__":
+        stocking_rate_calculator()

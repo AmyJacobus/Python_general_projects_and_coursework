@@ -17,12 +17,7 @@ __date__ = 'Sept 12, 2021'
 __status__ = 'Development'
 
 
-def break_even_calculator():
-
-    # GLOBAL VARIABLES??
-
-
-    def welcome_message():
+def welcome_message():
         print()
         print(f'='*112)
         print()
@@ -35,7 +30,7 @@ def break_even_calculator():
         print()
 
 
-    def user_input(yield_per_acre, price_per_acre, government_payment, variable_cost, overhead_cost):
+def user_input(yield_per_acre, price_per_acre, government_payment, variable_cost, overhead_cost):
         yield_per_acre = float(input("Please type in the yield per acre: "))
         price_per_acre = float(input("Please type in the price per acre: "))
         government_payment = float(input("Please type in the government payment per acre: "))
@@ -45,7 +40,7 @@ def break_even_calculator():
         print(f'='*112)
         print()
 
-    def calculate_column_1():
+def calculate_column_1():
         total_revenue = (yield_per_acre * price_per_acre) + government_payment
         total_cost = (variable_cost + overhead_cost)
         total_earnings = (total_revenue - total_cost)
@@ -53,7 +48,7 @@ def break_even_calculator():
         total_bushel_profit = (price_per_acre - break_even_price)
 
 
-    def calculate_column_data():# Calculations row 2,3,4 and 5
+def calculate_column_data():# Calculations row 2,3,4 and 5
         yield_row_2 = round(yield_per_acre * 0.9, 2)  # (10% decrease in yield)
         yield_row_3 = round(yield_per_acre * 1.1, 2)  # (10% increase in yield)
         variable_cost_row_4 = round(variable_cost * 0.9, 2)  # (10% decrease in cost)
@@ -77,7 +72,7 @@ def break_even_calculator():
         total_bushel_profit_row_4 = (price_per_acre - break_even_price_row_4)  # (10% decrease in yield)
         total_bushel_profit_row_5 = (price_per_acre - break_even_price_row_5)  # (10% increase in yield)
 
-    def user_data_entry_review(yield_per_acre, price_per_acre, government_payment,variable_cost,overhead_cost): # Display message to user
+def user_data_entry_review(yield_per_acre, price_per_acre, government_payment,variable_cost,overhead_cost): # Display message to user
         print("Here is the data you have inserted: ")
         print(f"Yield per acre:                  {yield_per_acre}")
         print(f"Price per acre:                  {price_per_acre}")
@@ -90,7 +85,7 @@ def break_even_calculator():
         print(f'='*112)
 
 
-    def output_report_menu(): # Output report [Menu]
+def output_report_menu(): # Output report [Menu]
         print(" ")
         print(
               f'{"":20s}'
@@ -108,7 +103,7 @@ def break_even_calculator():
         print(" ")
         print(f'='*112)
 
-    def output_data_entry_rows_and_columns():  # Output report results [Menu]
+def output_data_entry_rows_and_columns():  # Output report results [Menu]
         print(f'{"Yield":<20s}'
               f'{yield_per_acre:15,.2f}'
               f'{yield_row_2:15,.2f}'
@@ -170,14 +165,14 @@ def break_even_calculator():
               f'{total_bushel_profit_row_4:15,.2f}'
               f'{total_bushel_profit_row_5:15,.2f}')
 
-        def goodbye_message():
+def goodbye_message():
             print(" ")
             print(f'='*112)
             print(" ")
             print("Thank you for making use of our break even calculator.")
 
-        def main():
+def main():
 
-        if __name__ == "__main__":
-            main()
+if __name__ == "__main__":
+     main()
 

@@ -65,3 +65,6 @@ def cover_crop_calculator():
     Some designs to make the calculator look a bit nicer, when users are using it
     And it outputs some thank you message to the user.
     """
+
+    if __name__ == "__main__":
+        cover_crop_calculator()
