@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
 
+# MODULE LEVEL DOCSTRING HERE
+
+import break_even_calculator as bc
+import cover_crop_calculator as ccc
+import stocking_rate_calc as src
+import water_allocation_calc as wac
+
+# AUTHORSHIP HERE
+
+
 LINE_LENGTH = 50
 
 
@@ -17,7 +27,6 @@ def display_menu():
     print('0 - Exit program')
     print()
 
-
 def main():
 
     while True:
@@ -25,13 +34,13 @@ def main():
         command = int(input('Command: '))
 
         if command == 1:
-            print('break_even_calculator')
+            bc.break_even_calculator()
         elif command == 2:
-            print('cover_crop_calculator')
+            ccc.cover_crop_calculator()
         elif command == 3:
-            print('stocking_rate_calculator')
+            src.stocking_rate_calculator()
         elif command == 4:
-            print('water_allocation_calculator')
+            wac.water_allocation_calculator()
         elif command == 5:
             print('Help Menu')
         elif command == 0:
