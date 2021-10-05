@@ -17,7 +17,10 @@ __date__ = 'Sept 12, 2021'
 __status__ = 'Development'
 
 def break_even_calculator():
-
+      """
+      DOCSTRING
+      :return:
+      """
       # Display a welcome message to user
       print(" ")
       print(f'='*112)
@@ -172,5 +175,6 @@ def break_even_calculator():
       print(" ")
       print("Thank you for making use of our break even calculator.")
 
-if __name__ == "__main__":
-    break_even_calculator()
+      # DOCUMENT IN YOUR OWN WORDS
+      if __name__ == "__main__":
+            break_even_calculator()

@@ -15,9 +15,10 @@ __status__ = 'Development'
 
 
 def stocking_rate_calculator():
-
-    # Notes for myself:
-    # You can indent a piece of the code, or the whole code by typing shift + tab.
+    """
+    DOCSTRING
+    :return:
+    """
 
     # Welcome message to user
     print()
@@ -93,5 +94,6 @@ def stocking_rate_calculator():
     print('*' * 100)
     print()
 
+    # CODE IN YOUR OWN WORDS
     if __name__ == "__main__":
         stocking_rate_calculator()

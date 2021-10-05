@@ -10,6 +10,8 @@ a calculation algorithm and provide the user with the result of the amount of da
 take the water allocation to be used up.
 """
 
+import validation as v # importing the module validation with the namespace v
+
 # Authorship information # Done by Amy
 __author__ = 'Ammishaddai Jacobus and Ben Sadler'
 __version__ = '1.0'
@@ -18,6 +20,10 @@ __status__ = 'Development'
 
 
 def water_allocation_calculator():
+    """
+    DOCSTRING
+    :return: n/a
+    """
 
     # Welcome message with information about the calculator and instructions
     print()
@@ -35,7 +41,8 @@ def water_allocation_calculator():
 
         # User Input with while loop for validation
         while True:
-            rationed_allocation_depth = int(input(f"{'Please input the depth (D) in inches: ':>100s}"))  # Ben Sadler
+            # rationed_allocation_depth = int(input(f"{'Please input the depth (D) in inches: ':>100s}"))
+            rationed_allocation_depth = v.get_range(prompt= 'Please input the depth (D) in inches',low=0,high=100,)
             if rationed_allocation_depth > 0:  # Amy
                 break
             else:
@@ -81,5 +88,6 @@ def water_allocation_calculator():
     print()
     print("Thanks for using our water allocation calculator! End of program! :)")
 
+    # CODE IN YOUR OWN WORDS
     if __name__ == "__main__":
         water_allocation_calculator()

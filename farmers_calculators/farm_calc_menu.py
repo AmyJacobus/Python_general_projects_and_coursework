@@ -1,19 +1,28 @@
 #!/usr/bin/env python3
 
-# MODULE LEVEL DOCSTRING HERE
+"""
+DOCSTRING COMES HERE
+"""
 
 import break_even_calculator as bc
 import cover_crop_calculator as ccc
 import stocking_rate_calc as src
 import water_allocation_calc as wac
 
-# AUTHORSHIP HERE
+__author__ = 'Ammishaddai Jacobus and Rushandy Andrea'
+__version__ = '1.0'
+__date__ = 'Oct 6, 2021'
+__status__ = 'Development'
 
 
 LINE_LENGTH = 50
 
 
 def display_menu():
+    """
+    DOCSTRING
+    :return:
+    """
 
     print()
     print('The Farmers calculators')
@@ -27,7 +36,12 @@ def display_menu():
     print('0 - Exit program')
     print()
 
+
 def main():
+    """
+
+    :return:
+    """
 
     while True:
         display_menu()
@@ -50,9 +64,14 @@ def main():
 
         print()
 
+        print('=' * LINE_LENGTH)
+        input('Press any key to continue....')
+        print('=' * LINE_LENGTH)
+
+
     print("Bye!")
 
-
+# DOCUMENT IN YOUR OWN WORDS
 if __name__ == "__main__":
     main()
 

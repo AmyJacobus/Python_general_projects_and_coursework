@@ -1,12 +1,25 @@
-# Header
-# Programmer: Ammishaddai Jacobus
-# Date: September 6, 2021
-# Description: This is a crop coverage calculator. It asks the user for the area length, the area width and it seeding
-# rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coverage needed
-# and outputs the result to the user.
+#!/usr/bin/env python3
+
+"""
+Programmer: Ammishaddai Jacobus
+Date: September 6, 2021
+Description: This is a crop coverage calculator. It asks the user for the area length, the area width and it seeding
+rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coverage needed
+and outputs the result to the user.
+"""
+
+
+__author__ = 'Ammishaddai Jacobus and Rushandy Andrea'
+__version__ = '1.0'
+__date__ = '######'
+__status__ = 'Development'
 
 
 def cover_crop_calculator():
+    """
+
+    :return: n/a
+    """
 
     # displays a welcome message
     print('++' * 50)
@@ -66,5 +79,6 @@ def cover_crop_calculator():
     And it outputs some thank you message to the user.
     """
 
+    # CODE IN YOUR OWN WORDS
     if __name__ == "__main__":
         cover_crop_calculator()
