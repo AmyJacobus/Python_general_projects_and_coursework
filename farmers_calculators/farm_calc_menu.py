@@ -7,10 +7,12 @@ Description: This is a menu application, which lets the user pick 4 different fa
 calculations related to farming.
 """
 
-import break_even_calculator as bc # This imports the break even calculator module and assign it the namespace of bc
+import break_even_calculator as bc  # This imports the break even calculator module and assign it the namespace of bc
 import cover_crop_calculator as ccc # This imports cover_crop_calculator module and assign it the namespace of ccc
-import stocking_rate_calc as src # This imports stocking_rate_calc module and assign it the namespace of src
+import stocking_rate_calc as src    # This imports stocking_rate_calc module and assign it the namespace of src
 import water_allocation_calc as wac # This imports water_allocation_calc module and assign it the namespace of wac
+import help as h                    # THis imports help module and assigns it the namespace h
+
 
 #Authorship metadata
 __author__ = 'Ammishaddai Jacobus and Rushandy Andrea'
@@ -69,7 +71,7 @@ def main():
         elif command == 4:
             wac.water_allocation_calculator()
         elif command == 5:
-            print('Help Menu')
+            h.help_menu()
         elif command == 0:
             break
         else:
