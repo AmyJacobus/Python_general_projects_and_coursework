@@ -41,7 +41,7 @@ def break_even_calculator():
       print(" ")
 
       # Take Input from the user
-      yield_per_acre = v.get_positive(prompt = 'Please input the depth (D) in inches ', limit=0, data_type='float')
+      yield_per_acre = v.get_positive(prompt = 'Please input the yield per acre ', limit=0, data_type='float')
       price_per_acre = v.get_positive(prompt = 'Please type in the price per acre: ' , limit=0, data_type='float')
       government_payment =v.get_positive(prompt= 'Please type in the government payment per acre: ' , limit=0, data_type='float')
       variable_cost = v.get_positive(prompt = 'Please type in the variable cost per acre: ', limit=0, data_type='float')
