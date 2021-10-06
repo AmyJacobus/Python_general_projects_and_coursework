@@ -10,18 +10,25 @@
 # increase in cost.
 """
 
+import validation as v  # importing the module validation with the namespace v
+
 # Authorship
 __author__ = 'Ammishaddai Jacobus and Rushandy Andrea'
-__version__ = '1.0'
-__date__ = 'Sept 12, 2021'
+__version__ = '2.0'
+__date__ = 'Oct 6, 2021'
 __status__ = 'Development'
+
 
 def break_even_calculator():
       """
-      DOCSTRING
-      :return:
+      This function displays the name of the application, provides the user with instructions on how to use the
+      the calculator app and what data the user will need in order to use it successfully.
+      It runs the calculation based on the data that was inserted, using an algorithm designed to calculate break even
+      at different percentages, and provides the results in a report system.
+      :return: n/a
       """
-      # Display a welcome message to user
+
+      # Welcome message to suer
       print(" ")
       print(f'='*112)
       print(" ")
@@ -33,16 +40,15 @@ def break_even_calculator():
       print(f'='*112)
       print(" ")
 
-      # Input from the user
-      yield_per_acre = float(input("Please type in the yield per acre: "))
-      price_per_acre = float(input("Please type in the price per acre: "))
-      government_payment = float(input("Please type in the government payment per acre: "))
-      variable_cost = float(input("Please type in the variable cost per acre: "))
-      overhead_cost = float(input("Please type in the overhead cost per acre "))
+      # Take Input from the user
+      yield_per_acre = v.get_positive(prompt = 'Please input the depth (D) in inches ', limit=0, data_type='float')
+      price_per_acre = v.get_positive(prompt = 'Please type in the price per acre: ' , limit=0, data_type='float')
+      government_payment =v.get_positive(prompt= 'Please type in the government payment per acre: ' , limit=0, data_type='float')
+      variable_cost = v.get_positive(prompt = 'Please type in the variable cost per acre: ', limit=0, data_type='float')
+      overhead_cost = v.get_positive(prompt = 'Please type in the overhead cost per acre ', limit=0, data_type='float')
       print(" ")
       print(f'='*112)
       print(" ")
-
 
       # Calculations row1
       total_revenue = (yield_per_acre * price_per_acre) + government_payment
@@ -175,6 +181,6 @@ def break_even_calculator():
       print(" ")
       print("Thank you for making use of our break even calculator.")
 
-      # DOCUMENT IN YOUR OWN WORDS
-      if __name__ == "__main__":
-            break_even_calculator()
+
+if __name__ == "__main__": # Basically if the name of the module is equal to main
+      break_even_calculator() # Run this specific program.

@@ -2,25 +2,28 @@
 
 """
 Programmer: Ammishaddai Jacobus
-Date:
+Date: Oct 6, 2021
 Description: This program will help determine how many cow-calf pairs a pasture can support per acre of forage.
 This program is based on the following reference: https://www.wikihow.com/Calculate-Stocking-Rates-for-Your-Pastures
 """
 
+import validation as v  # importing the module validation with the namespace v
+
 # Authorship information
 __author__ = 'Ammishaddai Jacobus'
-__version__ = '1.0'
-__date__ = 'Sept 12, 2021'
+__version__ = '2.0'
+__date__ = 'Oct 6, 2021'
 __status__ = 'Development'
 
 
 def stocking_rate_calculator():
     """
-    DOCSTRING
-    :return:
+    This function displays the name of the application, provides the user with instructions on how to use the
+    the calculator app and what data the user will need in order to use it successfully. Asks the user for input, and
+    with the use of a while loop, checks if they are within a certain range. It runs the calculation based on the data
+    that was inserted, using an algorithm designed to calculate stocking rates at different percentages, and provides
+    the results in a report system.
     """
-
-    # Welcome message to user
     print()
     print('            Stocking Rate Calculator vrs.2021')
     print('To make use of this calculator, you will need the following data:')
@@ -33,7 +36,7 @@ def stocking_rate_calculator():
     # While loop to ask for forage samples taken
     while True:
 
-        forage_sample = int(input("Please enter the # of forage samples taken (Valid 1-20): "))
+        forage_sample = v.get_range(prompt="Please enter the # of forage samples taken Valid", low=1, high=20)
         if forage_sample in range(1, 21):  # Stars at 1, finish at 21, 21 will not count (1-20)
             break  # gets out of the loop here if the statement is true
         else:   # otherwise it will print out the error, and start the while loop again
@@ -63,7 +66,7 @@ def stocking_rate_calculator():
 
     # While loop to take user input for the utilization rate
     while True:
-        utilization_rate_input = int(input('Please enter the utilization rate (Valid 1-100): '))
+        utilization_rate_input = v.get_range(prompt='Please enter the utilization rate ', low=1, high=100)
         if utilization_rate_input in range(1, 101):
             print()
             break
@@ -73,7 +76,7 @@ def stocking_rate_calculator():
 
     # While loop to take user input of AUM
     while True:
-        animal_unit_month = int(input('Please enter the animal unit month, anywhere from 1 to 2000 (.lbs): '))
+        animal_unit_month = v.get_range(prompt='Please enter the animal unit month, anywhere from ', low=1, high=2000)
         if animal_unit_month in range(1, 2001):
             print()
             break
@@ -94,6 +97,6 @@ def stocking_rate_calculator():
     print('*' * 100)
     print()
 
-    # CODE IN YOUR OWN WORDS
-    if __name__ == "__main__":
-        stocking_rate_calculator()
+
+if __name__ == "__main__":  # Basically if the name of the module is equal to main
+    stocking_rate_calculator()

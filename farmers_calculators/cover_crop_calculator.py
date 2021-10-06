@@ -2,22 +2,25 @@
 
 """
 Programmer: Ammishaddai Jacobus
-Date: September 6, 2021
+Date: Oct 6, 2021, 2021
 Description: This is a crop coverage calculator. It asks the user for the area length, the area width and it seeding
 rate. The calculator takes that data, and inserts it into an algorithm and that calculates the crop coverage needed
 and outputs the result to the user.
 """
 
+import validation as v  # importing the module validation with the namespace v
 
-__author__ = 'Ammishaddai Jacobus and Rushandy Andrea'
-__version__ = '1.0'
-__date__ = '######'
+# Authorship information
+__author__ = 'Ammishaddai Jacobus'
+__version__ = '2.0'
+__date__ = 'Oct 6, 2021'
 __status__ = 'Development'
 
 
 def cover_crop_calculator():
     """
-
+    This function display the name of the calculator. Then takes the user input as float, calculates the data with
+    algorithms for cover crop calculation and outputs the total needed cover crop needed.
     :return: n/a
     """
 
@@ -32,40 +35,21 @@ def cover_crop_calculator():
     print(" ")
     print('++' * 50)
     print(" ")
-    """
-    This code displays information about the application to the user. Like the name of the application, it's version and
-    instructions on what information is needed to successfully make use of this application.
-    """
 
     # gets input from the user
-    area_length = float(input("Please type in the area length (.ft):  "))
-    area_width = float(input("Please type in the area width (.ft):   "))
-    seeding_rate = float(input("Please type in the seeding rate (lbs): "))
-    """
-    Here are coded 3 variables to take input from the user. Area length takes the user input for the length of the area,
-    area width takes input about the area width, and seeding rate takes the input and converts that data into float for 
-    all 3 variables into a float.
-    """
+    area_length = v.get_positive(prompt='Please type in the area length (.ft) ', limit=0, data_type='float')
+    area_width = v.get_positive(prompt='Please type in the area width (.ft) ', limit=0, data_type='float')
+    seeding_rate = v.get_positive(prompt='Please type in the seeding rate (lbs) ', limit=0, data_type='float')
 
     # calculations
     acreage = (area_length * area_width) / 43560
     cover_crop_needed_exact = float(acreage * seeding_rate)
     cover_crop_needed_rounded = round(acreage * seeding_rate, 2)
-    """
-    Here we have 3 variables that calculate the acreage,the total cover crop that is needed exactly 
-    up to the last decimal number (for more exact and science purposes), and the cover crop needed rounded up in case the
-    user wants the general total (for the average Joe). Extra, but
-    more user friendly that way.
-    """
 
     # Display results to user
     print(" ")
     print(f"Your total needed crop coverage is: {cover_crop_needed_rounded} lbs (rounded up)")
     print(f"Or {cover_crop_needed_exact} lbs to be exact.")
-    """
-    This prints out some empty space line and prints out the totals of the cover crop that is needed to the user. As a float
-    total and a rounded up total.
-    """
 
     # Goodbye message
     print(" ")
@@ -73,12 +57,7 @@ def cover_crop_calculator():
     print(" ")
     print("Thank you for making use of our crop coverage calculator!")
     print(" ")
-    """
-    This prints out some empty space lines
-    Some designs to make the calculator look a bit nicer, when users are using it
-    And it outputs some thank you message to the user.
-    """
 
-    # CODE IN YOUR OWN WORDS
-    if __name__ == "__main__":
-        cover_crop_calculator()
+
+if __name__ == "__main__":  # Basically if the name of the module is equal to main
+    cover_crop_calculator()  # Run this specific program.

@@ -1,27 +1,33 @@
 #!/usr/bin/env python3
 
 """
-DOCSTRING COMES HERE
+Programmer: Ammishaddai Jacobus
+Date: Oct 6, 2021, 2021
+Description: This is a menu application, which lets the user pick 4 different farm calculators to do different
+calculations related to farming.
 """
 
-import break_even_calculator as bc
-import cover_crop_calculator as ccc
-import stocking_rate_calc as src
-import water_allocation_calc as wac
+import break_even_calculator as bc # This imports the break even calculator module and assign it the namespace of bc
+import cover_crop_calculator as ccc # This imports cover_crop_calculator module and assign it the namespace of ccc
+import stocking_rate_calc as src # This imports stocking_rate_calc module and assign it the namespace of src
+import water_allocation_calc as wac # This imports water_allocation_calc module and assign it the namespace of wac
 
+#Authorship metadata
 __author__ = 'Ammishaddai Jacobus and Rushandy Andrea'
-__version__ = '1.0'
+__version__ = '2.0'
 __date__ = 'Oct 6, 2021'
 __status__ = 'Development'
 
 
-LINE_LENGTH = 50
+LINE_LENGTH = 50 # ling length, declared here to be used all over the program when needed
 
 
 def display_menu():
     """
-    DOCSTRING
-    :return:
+    This function displays the menu, also displays the different calculator options for the user. Allows them to choose
+    from a menu option. Has options from 0-5, 4 calculator options, help option (that display the menu again) and a
+    exit program option. It imports calculator modules to run the program.
+    :return: n/a
     """
 
     print()
@@ -39,8 +45,15 @@ def display_menu():
 
 def main():
     """
+    This function calls the function display_menu
+    Takes the user input, makes it an integer.
+    Also runs the if, elif, else code to call verify the user's command input and call the calculator asigned to that
+    command. If they choose 0, it will exit the application completely, if they choose 5, it will open the help menu
+    again for them.
 
-    :return:
+    It also asks the user after the new opened calculator has completed it's cycle if they want to press any key
+    to continue to the original menu to choose another calculator or exit the program.
+    :return: n/a
     """
 
     while True:
@@ -71,21 +84,8 @@ def main():
 
     print("Bye!")
 
-# DOCUMENT IN YOUR OWN WORDS
-if __name__ == "__main__":
-    main()
 
-# Add a menu for all of the farm calculators named farm_calc_menu.py
-# Include a menu option to display docstrings for farm_calc_menu.py
-# All imports need to be in the default or named local namespace
-# Modify farm calculating modules to be able to be called by a function
-#
-# Add a validation.py module (Example: solutions\ch04\validation.py)
-# get_range(prompt, low, high, data_type='int')
-# get_positive_num(prompt, data_type='int')
-# get_num(prompt, data_type='int')
-# All calculators should use the validation.py functions for data validation
-#
-# All modules should check if they are the starting point and if so run the appropriate calculator
-# Use global constant variable, and named arguments where appropriate
-# Add docstrings & authorship attributes (meta data)
+if __name__ == "__main__":  # Basically if the name of the module is equal to main
+    main() # Run this specific program.
+
+
