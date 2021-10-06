@@ -82,6 +82,7 @@ def get_num():
         value = input('Write a number: ')
         try:
             value = int(value)
+            break
         except ValueError:
             print('That is not a number,enter a number, please')
             continue
@@ -107,7 +108,7 @@ def main():
 
         # TEST FUNCTION get_num()
         # Get input
-        get_num()
+        # get_num()
 
         # see if the user wants to continue
         choice = input("Repeat? (y/n): ")

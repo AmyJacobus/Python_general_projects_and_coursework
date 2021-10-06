@@ -71,8 +71,8 @@ def water_allocation_calculator():
 
         #  Output results  done by Ben and updated and formatted by amy
         time_in_days = (18.857 * rationed_allocation_depth * area_being_irrigated) / average_rate_of_flow
-        print(f'The allocation of water will be used up in [{round(time_in_days, 1)} days] when '
-              f'[{area_being_irrigated} acres is irrigated] with an irrigation\n system that has an '
+        print(f'The allocation of water will be used up in [{round(time_in_days, 1)} days] when'
+              f'[{area_being_irrigated} acres is irrigated] with an irrigation\n system that has an'
               f'[average rate flow of {average_rate_of_flow} [US GPM] system capacity and the rationed allocation '
               f'depth\n is [{rationed_allocation_depth} inches.]')
         print()

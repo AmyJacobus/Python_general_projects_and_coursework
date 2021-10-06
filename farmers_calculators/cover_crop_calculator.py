@@ -37,9 +37,9 @@ def cover_crop_calculator():
     print(" ")
 
     # gets input from the user
-    area_length = v.get_positive(prompt='Please type in the area length (.ft) ', limit=0, data_type='float')
-    area_width = v.get_positive(prompt='Please type in the area width (.ft) ', limit=0, data_type='float')
-    seeding_rate = v.get_positive(prompt='Please type in the seeding rate (lbs) ', limit=0, data_type='float')
+    area_length = v.get_positive(prompt='Please type in the area length (.ft) ', limit=1, data_type='float')
+    area_width = v.get_positive(prompt='Please type in the area width (.ft) ', limit=1, data_type='float')
+    seeding_rate = v.get_positive(prompt='Please type in the seeding rate (lbs) ', limit=1, data_type='float')
 
     # calculations
     acreage = (area_length * area_width) / 43560
