@@ -89,32 +89,36 @@ def get_num():
 
 
 def main():
-    choice = "y"
-    while choice.lower() == "y":
-        # TO TEST FUNCTION get_range()
-        # get input
-        # valid_number = get_range(prompt="Enter float", low=0, high=1000, data_type='float')
-        # print("Valid number = ", valid_number)
-        # print()
-        # valid_number = get_range(prompt="Enter int", low=0, high=1000, data_type='int')
-        # print("Valid integer = ", valid_number)
-        # print()
-
-        # TEST FUNCTION get_positive()
-        # # get input
-        # valid_number = get_positive(prompt="Enter a number greater than ", limit=0, data_type='int')
-        # print("Valid number = ", valid_number)
-        # print()
-
-        # TEST FUNCTION get_num()
-        # Get input
-        # get_num()
-
-        # see if the user wants to continue
-        choice = input("Repeat? (y/n): ")
-        print()
-
-    print("Bye!")
+    """
+    This is the main function, used to test each function in this module separately in a while loop.
+    :return: n/a
+    """
+    # choice = "y"
+    # while choice.lower() == "y":
+    #     # TO TEST FUNCTION get_range()
+    #     # get input
+    #     # valid_number = get_range(prompt="Enter float", low=0, high=1000, data_type='float')
+    #     # print("Valid number = ", valid_number)
+    #     # print()
+    #     # valid_number = get_range(prompt="Enter int", low=0, high=1000, data_type='int')
+    #     # print("Valid integer = ", valid_number)
+    #     # print()
+    #
+    #     # TEST FUNCTION get_positive()
+    #     # # get input
+    #     # valid_number = get_positive(prompt="Enter a number greater than ", limit=0, data_type='int')
+    #     # print("Valid number = ", valid_number)
+    #     # print()
+    #
+    #     # TEST FUNCTION get_num()
+    #     # Get input
+    #     # get_num()
+    #
+    #     # see if the user wants to continue
+    #     choice = input("Repeat? (y/n): ")
+    #     print()
+    #
+    # print("Bye!")
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
