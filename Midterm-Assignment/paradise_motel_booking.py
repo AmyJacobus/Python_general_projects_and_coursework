@@ -1,38 +1,58 @@
-# shabang
+#!/usr/bin/env python3
 
-# imports
 import random
-import Location as l
 
 # authorship
+__author__ = 'Ammishaddai Jacobus'
+__version__ = '2.0'
+__date__ = 'Oct 6, 2021'
+__status__ = 'Development'
 
 
-print('Welcome to the Paradise Motel Booking System')
+base_rate = 80
+# Welcome message
+print('=' * 100)
+print()
+print(f'{"Welcome to the Paradise Motel Booking System!":>30s}') # NEEDS FIXING
+print()
+print('=' * 100)
+
+# Take user input
+print()
+print('Which day of the week will you be checking in?')
+day_chosen = str(input('Monday - Sunday: '))
+
+# CALCULATE BASE RATE
+SUN = (base_rate * 0.2) + base_rate
+MON = (base_rate * 0.2) + base_rate
+TUE = (base_rate * 0.2) + base_rate
+WED = (base_rate * 0.1) + base_rate
+THU = (base_rate * 0.1) + base_rate
+FRI = base_rate
+SAT = base_rate
+
+# ROOM CALCULATION
+
+
+# RANDOMIZE ROOMS
+
+
+# DISPLAY ROOM REPORT
+
+# ASK WHAT TYPE OF BOOK DO THEY WANT TO BOOK
+
+# ASK HOW MANY GUESTS WILL BE STAYING
+
+# HOW MANY DAYS THEY WANT TO BOOK {ROOM{
+
+# DISPLAY REPORT OF THE INFO
+
+# CONFIRM BOOKING
 
 
 
 
-day_of_the_week = input('Which day of the week will you be checking in [MON - SUN]: ').lower()
-days_of_the_week = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
 
-if day_of_the_week == days_of_the_week[0]:
-    print('tested monday')
-
-    # Should have validation to check if it even equals 1 letter
-# if day_of_the_week == days_of_the_week[0]:
-#     print('calculation has to happen 1')
-# elif day_of_the_week == days_of_the_week[1]:
-#     print('calculation has to happen 2')
-# elif day_of_the_week == days_of_the_week[2]:
-#     print('calculation has to happen 3')
-# elif day_of_the_week == days_of_the_week[3]:
-#     print('calculation has to  4')
-# elif day_of_the_week == days_of_the_week[4:
-#     print('calculation has to happen 5')
-# elif day_of_the_week == days_of_the_week[5]:
-#     print('calculation has to happen 6')
-# elif day_of_the_week == days_of_the_week[6]:
-#     print('calculation has to happen 7')
 
 
 
