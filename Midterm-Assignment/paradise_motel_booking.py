@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import random
+import day_of_week as dow
 
 # authorship
 __author__ = 'Ammishaddai Jacobus'
@@ -20,18 +21,48 @@ print('=' * 100)
 # Take user input
 print()
 print('Which day of the week will you be checking in?')
-day_chosen = str(input('Monday - Sunday: '))
+day_chosen = dow.get_dow(prompt='Monday – Sunday: ').upper()
+
 
 # CALCULATE BASE RATE
-SUN = (base_rate * 0.2) + base_rate
-MON = (base_rate * 0.2) + base_rate
-TUE = (base_rate * 0.2) + base_rate
-WED = (base_rate * 0.1) + base_rate
-THU = (base_rate * 0.1) + base_rate
-FRI = base_rate
-SAT = base_rate
+SUNDAY = (base_rate * 0.2) + base_rate
+MONDAY = (base_rate * 0.2) + base_rate
+TUESDAY = (base_rate * 0.2) + base_rate
+WEDNESDAY = (base_rate * 0.1) + base_rate
+THURSDAY = (base_rate * 0.1) + base_rate
+FRIDAY = base_rate
+SATURDAY = base_rate
+
+#
+print()
+print(f'{day_chosen} Available rooms')
+print(f'{day_chosen} base rate is {SUNDAY}: ')
+print('=' * 100)
+# DECLARE ROOMS
 
 # ROOM CALCULATION
+
+# if day_chosen == 'SUN':
+#     # DISPLAY FUNCTION FOR THIS
+# elif day_chosen == 'MON':
+#     # DISPLAY FUNCTION FOR THIS
+#
+# elif day_chosen == 'TUE':
+#         # DISPLAY FUNCTION FOR THIS
+#
+# elif day_chosen == 'WED':
+#     # DISPLAY FUNCTION FOR THIS
+#
+# elif day_chosen == 'THU':
+#     # DISPLAY FUNCTION FOR THIS
+#
+# elif day_chosen == 'FRI':
+#     # DISPLAY FUNCTION FOR THIS
+#
+# elif day_chosen == 'SAT':
+#     # DISPLAY FUNCTION FOR THIS
+
+
 
 
 # RANDOMIZE ROOMS
