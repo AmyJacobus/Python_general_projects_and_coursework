@@ -2,6 +2,7 @@
 
 import random
 import day_of_week as dow
+import Rooms as rm
 
 # authorship
 __author__ = 'Ammishaddai Jacobus'
@@ -24,20 +25,49 @@ print('Which day of the week will you be checking in?')
 day_chosen = dow.get_dow(prompt='Monday – Sunday: ').upper()
 
 
-# CALCULATE BASE RATE
-SUNDAY = (base_rate * 0.2) + base_rate
-MONDAY = (base_rate * 0.2) + base_rate
-TUESDAY = (base_rate * 0.2) + base_rate
-WEDNESDAY = (base_rate * 0.1) + base_rate
-THURSDAY = (base_rate * 0.1) + base_rate
-FRIDAY = base_rate
-SATURDAY = base_rate
 
-#
+# CALCULATE BASE RATE
+if day_chosen == 'SUNDAY':
+    BSRT = (base_rate * 0.2) + base_rate
+    print(BSRT)
+elif day_chosen == 'MONDAY':
+    BSRT = (base_rate * 0.2) + base_rate
+    print(BSRT)
+elif day_chosen == 'TUESDAY':
+    BSRT = (base_rate * 0.2) + base_rate
+    print(BSRT)
+elif day_chosen == 'WEDNESDAY':
+    BSRT = (base_rate * 0.1) + base_rate
+    print(BSRT)
+elif day_chosen == 'THURSDAY':
+    BSRT = (base_rate * 0.1) + base_rate
+    print(BSRT)
+elif day_chosen == 'FRIDAY':
+    BSRT = base_rate
+    print(BSRT)
+elif day_chosen == 'SATURDAY':
+    BSRT = base_rate
+    print(BSRT)
+
+# RANDOMIZE NUMBERS
 print()
 print(f'{day_chosen} Available rooms')
-print(f'{day_chosen} base rate is {SUNDAY}: ')
 print('=' * 100)
+print()
+
+rooms_single = random.randint(0,9)
+room_double = random.randint(0,11)
+room_king = random.randint(0,3)
+
+bsrt_single = BSRT
+bsrt_double = (BSRT * 0.5) + BSRT
+bsrt_king = (BSRT * 0.25) + BSRT
+
+# base rate room calculation
+print(f'{rooms_single} single rooms (2 guests max) available at ${bsrt_single}')
+print(f'{room_double} single rooms (2 guests max) available at ${bsrt_double}')
+print(f'{room_king} single rooms (2 guests max) available at ${bsrt_king}')
+
 # DECLARE ROOMS
 
 # ROOM CALCULATION
@@ -78,7 +108,6 @@ print('=' * 100)
 
 # DISPLAY REPORT OF THE INFO
 
-# CONFIRM BOOKING
 
 
 
@@ -114,4 +143,6 @@ print('=' * 100)
 # Main
 # Credit card authorization
 # Semi - manual chatbot
+
+
 
