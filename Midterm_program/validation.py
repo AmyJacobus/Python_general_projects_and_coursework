@@ -10,21 +10,40 @@ their error.
 
 # authorship
 
-def get_int():
-    print()
+def get_num(prompt, data_type='int'):
 
-def get_num():
-    print()
+    while True:
 
-def get_pos():
-    print()
+        user_input = input(prompt)
 
-def get_str():
+        if data_type == 'int':
+            number = int(user_input)
+        elif data_type == 'float':
+            number = float(user_input)
+        else:
+            print("Entry must be a number")
+
+
+def get_pos(prompt, limit, data_type='int'):
+
+    while True:
+
+        user_input = input(f'{prompt} input must be greater than or equal to {limit}: ')
+
+        if data_type == 'int':
+            number = int(user_input)
+        else:
+            number = float(user_input)
+
+        if number > limit:
+            return number
+        else:
+            print(f'The number cannot be below {limit}')
 
 
 def main():
-    print()
-    get_str()
+    get_pos(prompt='How many rooms would you like to book ', limit=1)
+    get_num(prompt='input a number: ', data_type='float')
 
 if __name__ == "__main__":
       main()

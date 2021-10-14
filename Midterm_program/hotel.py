@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """
-Programmer:
-Date:
+Programmer: Ammishaddai Jacobus
+Date: 10/14/2021
 Description:
 """
 
@@ -15,7 +15,7 @@ __version__ = '2.0'
 __date__ = 'Oct 15, 2021'
 __status__ = 'Development'
 
-base_rate = 80 # GLOBAL VARIABLE - CONSTANT
+BASE_RATE = 80 # GLOBAL VARIABLE - CONSTANT
 
 def welcome_msg():
 
@@ -27,134 +27,136 @@ def welcome_msg():
 
 
 def get_dow():
-        #prompt the user for what dow they want to check in & validate (1-7)
-        #NEED TO VALIDATE
-        print("What day of the week would you like to check in? ")
-        dow = input('MONDAY - SUNDAY: ').upper()
+
+        while True:
+
+            print("What day of the week would you like to check in? ")
+            dow = input('MONDAY - SUNDAY: ').upper()
+            if dow in ['Monday','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY']:
+                break
+            else:
+                print('Error! Please type in a day of the week.')
 
         return dow
 
-
 def get_dow_rate(dow):
-        # MUST VALIDATE
-        # calculate the dow_rate based on dow
-        print('this function runs...')
         # calculate dow
-        if dow == 'SUNDAY':
-            dow_rate = (base_rate * 0.2) + base_rate # br *= 1.2
-            return dow_rate
-        elif dow == 'MONDAY':
-            dow_rate = (base_rate * 0.2) + base_rate
-            return dow_rate
-        elif dow == 'TUESDAY':
-            dow_rate = (base_rate * 0.2) + base_rate
-            return dow_rate
-        elif dow == 'WEDNESDAY':
-            dow_rate = (base_rate * 0.1) + base_rate
-            return dow_rate
-        elif dow == 'THURSDAY':
-            dow_rate = (base_rate * 0.1) + base_rate
-            return dow_rate
-        elif dow == 'FRIDAY':
-            dow_rate = base_rate
-            return dow_rate
-        elif dow == 'SATURDAY':
-            dow_rate = base_rate
-            return dow_rate
+        if dow in ['SUNDAY', 'MONDAY', 'TUESDAY']:
+            return BASE_RATE * 1.2
+        elif dow == ['WEDNESDAY','THURSDAY']:
+            return (BASE_RATE * 1.1)
+        elif dow == ['FRIDAY','SATURDAY']:
+            return BASE_RATE
+        else:
+            print('Program error')
+            print('Exiting the program now')
+            exit()
 
-def get_avail_rooms(num_single, num_double, num_king):
+def get_avail_rooms():
+        # WHAT EXACTLY IS HAPPENING HERE
+        num_single = random.randint(0, 9)
+        num_double = random.randint(0, 11)
+        num_king= random.randint(0, 3)
+
+        return num_single, num_double, num_king
+
+# generate available rooms for single, double king using random numbers
+
 #
-#         rooms_single = random.randint(0, 9)
-#         room_double = random.randint(0, 11)
-#         room_king = random.randint(0, 3)
-#
-#         return num_single
-#         return num_double
-#         return num_king
-#     #     generate
-#     #     available
-#     #     rooms
-#     #     for single, double king using random numbers
-#     #     return num_single, num_double, num_king
-#
-def get_room_rates():
-     #     calculate rates based on type
-    #     return single_rate, double_rate, king_rate
-         dow = get_dow()
-         dow_rate = get_dow_rate(dow)
+def get_room_rates(dow_rate):
 
         single_rate = dow_rate
-        double_rate = (dow_rate * 0.5 ) + dow_rate
-        king_rate = (dow_rate * 0.25 ) + dow_rate
+        double_rate = dow_rate * 15
+        king_rate = dow_rate * 1.25
 
-        return single_rate
-        return king_rate
-#
-def get_room_type_rate(dow_rate):
-         # num_single, num_double, num_king = get_avail_rooms()
-         # single_rate, double_rate, king_rate = get_room_rates(dow_rate)
-            #
-            #      # display available rooms & room rates
-            #      print()
-            #      print('DAY OF THE WEEK NAME HERE - ''available rooms')
-            #      print('='*50)
-            #      print('REPORT HERE')
-            #      # MUST VALIDATE
-            #      room_type = input('Which type of room (Single = S, Double = D, King = K')
-            #
-            #      # for which room type and validate room type (1-3) and availabilty
-            #
-            # return room_type, room_type_rate
-            # return room_type
-            # return room_type_rate
+        return single_rate, double_rate, king_rate
+
+
+def get_room_type_rate(prompt,dow, dow_rate):
+
+     num_single, num_double, num_king = get_avail_rooms()
+     single_rate, double_rate, king_rate = get_room_rates(dow_rate)
+
+     print(f'{dow} available rooms')
+     print('='*50)
+     print(f'{num_single}(2 guest max) available at {single_rate}')
+     print(f'{num_single}(4 guest max) available at {double_rate}')
+     print(f'{num_single}(2 guest max) available at {king_rate}')
+
+     print('What room would you like to book: ')
+
+     while True:
+         room_type = input('S= Single, D = Double, K = King').upper()
+         if room_type in ['S', 'SINGLE']:
+             return 'SINGLE', dow_rate
+         elif room_type in ['D' or 'DOUBLE']:
+             return 'DOUBLE', dow_rate * 1.5
+         elif room_type in ['K' or 'KING']:
+             return 'KING', dow_rate * 1.25
+         else:
+             print('Invalid input, try again.')
+
 
 def get_num_guests(room_type):
-        # #   prompt the user for the num_guests in the room and validate range based on room_type
-        #     num_guests = input('How many guests are staying in the room: ')
-        #         # or end
-        #         #  the
-        #         # program if an
-        #          invalid
-        #         # room_type is received
-        #     return num_guests
+
+        num_guests = input('How many guests will be staying in the room: ')
+        if num_guests == 'int':
+            return num_guests
+        else:
+            print('Invalid input')
+            exit()
 
 def calc_surcharge(num_guests):
-        # #     calculate
-        # #     the
-        # #     surcharge
-        # #     return surcharge
-        # #
+
+
+        if num_guests == 1:
+            surcharge = 0
+        elif num_guests == 2:
+            surcharge = 10
+        elif num_guests == 3:
+            surcharge = 18
+        elif num_guests == 4:
+            surcharge = 32
+
+        return surcharge
+
+
+def many_days(room_type, num_guests):
+
+    print(f'How many days will you want to book a {room_type} room,')
+    total_days = input(f'With {num_guests} at ')
+
 
 def display_booking(dow, dow_rate, room_type, room_type_rate, num_guests, surcharge):
-        # #     display
-        # #     a
-        # #     summary
-        # #     of
-        # #     the
-        # #     all
-        # #     booking
-        # #     information
-        # #     or end
-        # #     the
-        # #     program if invalid
-        # #     dow, and room_type is received
+        # display
+        # a
+        # summary
+        # of
+        # the
+        # all
+        # booking
+        # information
+        # or end
+        # the
+        # program if invalid
+        # dow, and room_type is received
+
 
 def get_do_you_want_to_continue():
-
+        # ISSUE
         while True:
 
          choice  = input('Would you like to book another room  [yes/no]: ').lower()
          if choice == 'yes' or 'y':
-            return True
-         else:
             return False
+         else:
+            return True
 
 # the user if they want to book another room (lower case input and validate: y, n, yes, no) return true or false
 
 
 def main():
-
-    get_do_you_want_to_continue()
+    print('Here we test')
 
 
 if __name__ == "__main__":
