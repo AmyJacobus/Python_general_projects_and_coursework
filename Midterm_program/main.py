@@ -23,8 +23,9 @@ def main():
         num_nights = hotel.get_number_of_nights(room_type, num_guests, total_room_rate)
         total_charge = total_room_rate * num_nights
 
-        if hotel.confirm_booking(num_nights, total_charge):
-                grand_total_charge += total_charge
+        book_another = hotel.confirm_booking(num_guests, total_charge)
+        if book_another in ['yes','y']:
+            grand_total_charge += total_charge
 
         loop = hotel.get_do_you_want_to_continue()
 
@@ -37,4 +38,4 @@ def main():
 
 
 if __name__ == "__main__":
-      main()
+     main()

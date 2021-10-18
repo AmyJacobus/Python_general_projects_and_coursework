@@ -76,13 +76,11 @@ def get_range(prompt, low, high, data_type='int'):
 def get_choice(prompt):
 
     while True:
-
         choice = input(f'{prompt}').lower()
         if choice in ['yes', 'y', 'n', 'no']:
-            break
+            return choice
         else:
             print('There has been an error, please type in a yes or no')
-            continue
 
 
 def main():

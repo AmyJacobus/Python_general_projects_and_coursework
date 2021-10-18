@@ -124,29 +124,24 @@ def calc_surcharge(num_guests):
 
 
 def get_number_of_nights(room_type, num_guests, room_type_rate):
-    #MUST VALIDATE
+
     num_nights = v.get_num(prompt=f'How many nights will you want to book a {room_type} room, with {num_guests} guests '
                                   f'at the rate of ${room_type_rate}: ', data_type='int')
 
     return num_nights
 
+
 def confirm_booking(num_nights, total_charge):
 
     print(f'Would you like to confirm your booking for {num_nights} nights at the total charge of ${total_charge}')
-    confirm = v.get_choice(prompt='Y=Yes or N=no: ')
+    choice = v.get_choice(prompt='Y=Yes or N=no: ')
+
+    return choice
 
 def get_do_you_want_to_continue():
 
-     choice  = v.get_choice(prompt='Would you like to book another room  [yes/no]: ')
-     if choice == 'yes' or 'y':
-         return False
-     else:
-         return True
-
-
-def main():
-    print('Here we test')
-
-
-if __name__ == "__main__":
-    main()
+    choice = v.get_choice(prompt='Would you like to book another room [yes/no]: ')
+    if choice in ['yes','y']:
+        return True
+    else:
+        return False
