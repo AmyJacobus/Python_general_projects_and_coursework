@@ -10,6 +10,7 @@ their error.
 
 # authorship
 
+import hotel as h
 
 def get_dow(prompt):
 

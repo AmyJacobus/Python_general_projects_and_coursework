@@ -8,7 +8,7 @@ def main():
     hotel.welcome_msg()
     dow = hotel.get_dow()
     dow_rate = hotel.get_dow_rate(dow)
-    room_type, room_type_rate = hotel.get_room_type_rate(dow_rate)
+    room_type, room_type_rate = hotel.get_room_type_rate(dow,dow_rate)
 
 
 

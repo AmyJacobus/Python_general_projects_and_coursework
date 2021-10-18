@@ -31,19 +31,19 @@ def welcome_msg():
 
 def get_dow():
 
-        print("What day of the week would you like to check in? ")
-        dow = v.get_dow(prompt='MONDAY - SUNDAY: ')
+    print("What day of the week would you like to check in? ")
+    dow = v.get_dow(prompt='MONDAY - SUNDAY: ')
 
-        return dow
+    return dow
 
 
 def get_dow_rate(dow):
     # calculate dow
     if dow in ['SUNDAY', 'MONDAY', 'TUESDAY']:
         return BASE_RATE * 1.2
-    elif dow == ['WEDNESDAY','THURSDAY']:
-        return (BASE_RATE * 1.1)
-    elif dow == ['FRIDAY','SATURDAY']:
+    elif dow == ['WEDNESDAY', 'THURSDAY']:
+        return BASE_RATE * 1.1
+    elif dow == ['FRIDAY', 'SATURDAY']:
         return BASE_RATE
     else:
         print('Program error')
@@ -52,10 +52,10 @@ def get_dow_rate(dow):
 
 
 def get_avail_rooms():
-        # WHAT EXACTLY IS HAPPENING HERE
+
     num_single = random.randint(0, 8)
     num_double = random.randint(0, 10)
-    num_king= random.randint(0, 2)
+    num_king = random.randint(0, 2)
 
     return num_single, num_double, num_king
 
@@ -69,61 +69,67 @@ def get_room_rates(dow_rate):
     return single_rate, double_rate, king_rate
 
 
-def get_room_type_rate(dow_rate):
+def get_room_type_rate(dow, dow_rate):
 
-     num_single, num_double, num_king = get_avail_rooms()
-     single_rate, double_rate, king_rate = get_room_rates(dow_rate)
+    num_single, num_double, num_king = get_avail_rooms()
+    single_rate, double_rate, king_rate = get_room_rates(dow_rate)
 
-     # print(f'{dow} available rooms')
-     print('='*50)
-     print()
-     print(f'{num_single} single rooms (2 guest max) available at ${single_rate}')
-     print(f'{num_double} double rooms(4 guest max) available at ${double_rate}')
-     print(f'{num_king} king rooms (2 guest max) available at ${king_rate}')
-     print()
+    print()
+    print(f'{dow} Available Rooms')
+    print('='*50)
+    print(f'{num_single} single rooms (2 guest max) available at ${single_rate}')
+    print(f'{num_double} double rooms (4 guest max) available at ${double_rate}')
+    print(f'{num_king} king rooms   (2 guest max) available at ${king_rate}')
+    print()
 
-     print('What room would you like to book: ')
+    print('What room would you like to book: ')
 
-     while True:
-         room_type = input('S = Single, D = Double, K = King: ').upper()
-         if room_type in ['S', 'SINGLE']:
-             return single_rate
-         elif room_type in ['D' or 'DOUBLE']:
-             return double_rate
-         elif room_type in ['K' or 'KING']:
-             return king_rate
-         else:
-             print('Invalid input, try again.')
+    while True:
+     room_type = input('S = Single, D = Double, K = King: ').upper()
+     if room_type in ['S', 'SINGLE']:
+        return single_rate
+     elif room_type in ['D' or 'DOUBLE']:
+        return double_rate
+     elif room_type in ['K' or 'KING']:
+        return king_rate
+     else:
+        print('Invalid input, try again.')
 
 
 def get_num_guests(room_type):
 
-        num_guests = v.get_range(prompt='How many guests will be staying in the room: ', low=1, high=4)
-
+    if room_type in ['D' or 'Double']:
+        num_guests = v.get_range(prompt=f'How many guests will be staying in the {room_type} room: ', low=1, high=4)
         return num_guests
+    elif room_type in ['S', 'SINGLE', 'K', 'KING']:
+        num_guests = v.get_range(prompt=f'How many guests will be staying in the {room_type} room: ', low=1, high=2)
+        return num_guests
+    else:
+        print('There has been an error.')
+        sys.exit()
 
 
 def calc_surcharge(num_guests):
 
-        if num_guests == 1:
-            return 0
-        elif num_guests == 2:
-            return 10
-        elif num_guests == 3:
-            return 18
-        elif num_guests == 4:
-            return 32
+    if num_guests == 1:
+        return 0
+    elif num_guests == 2:
+        return 10
+    elif num_guests == 3:
+        return 18
+    elif num_guests == 4:
+        return 32
 
 
 def get_number_of_nights(room_type, num_guests, room_type_rate):
 
-    print(f'How many days will you want to book a {room_type} room,')
+    print(f'How many days will you want to book a {room_type} room, at the rate of ${room_type_rate}')
     num_nights = input(f'With {num_guests} at ')
 
     return num_nights
 
 
-def display_booking(dow, dow_rate, room_type, room_type_rate, num_guests, surcharge):
+def display_booking(dow, room_type, room_type_rate, num_guests, surcharge):
     print()
     print(f'You chose {dow}')
     print(f'Room type: {room_type}')
@@ -138,16 +144,16 @@ def display_booking(dow, dow_rate, room_type, room_type_rate, num_guests, surcha
 
 
 def confirm_booking(num_nights, total_charge):
-        #  prompt the user to confirm their booking num_nights & total_charge
+
     print(f'Would you like to confirm your booking for {num_nights} nights at the total charge of ${total_charge}')
 
     while True:
      confirm = v.get_choice(prompt='Y=Yes or N=no').lower()
-     if confirm in ['yes','y']:
+     if confirm in ['yes', 'y']:
         # print(f'Your total bill is ${total_charge}')
         # print('We are looking forward to seeing you soon!')
         return True
-     elif confirm in ['no','n']:
+     elif confirm in ['no', 'n']:
         # print('Thank you for making use of our service')
         # print('Hope to see you again soon')
         return False
@@ -156,16 +162,16 @@ def confirm_booking(num_nights, total_charge):
 
 
 def get_do_you_want_to_continue():
-        # ISSUE
+
     while True:
-      choice  = v.get_choice(prompt= 'Would you like to book another room  [yes/no]: ').lower()
-      if choice in ['yes','y']:
+      choice  = v.get_choice(prompt='Would you like to book another room  [yes/no]: ').lower()
+      if choice in ['yes', 'y']:
         return True
-      elif choice in ['no','n']:
+      elif choice in ['no', 'n']:
         print('Thank you for making use of our booking service')
         return False
       else:
-          exit()
+        exit()
 
 
 def main():
@@ -173,4 +179,4 @@ def main():
 
 
 if __name__ == "__main__":
-      main()
+    main()
