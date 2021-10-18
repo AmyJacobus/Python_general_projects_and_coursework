@@ -30,8 +30,10 @@ def get_num(prompt, data_type='int'):
 
         if data_type == 'int':
             user_input = int(user_input)
+            return user_input
         elif data_type == 'float':
             user_input = float(user_input)
+            return user_input
         else:
             print("Entry must be a number")
 
@@ -63,7 +65,7 @@ def get_range(prompt, low, high, data_type='int'):
         else:
             number = float(user_input)
 
-        if number > low and number <= high:
+        if number >= low and number <= high:
             return number
 
         else:
@@ -76,13 +78,11 @@ def get_choice(prompt):
     while True:
 
         choice = input(f'{prompt}').lower()
-        if choice in ['yes', 'y']:
-            break
-        elif choice in ['no', 'n']:
+        if choice in ['yes', 'y', 'n', 'no']:
             break
         else:
-            print('You have not input a yes or no.Try again.')
-
+            print('There has been an error, please type in a yes or no')
+            continue
 
 
 def main():

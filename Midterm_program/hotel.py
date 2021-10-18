@@ -87,21 +87,23 @@ def get_room_type_rate(dow, dow_rate):
     while True:
      room_type = input('S = Single, D = Double, K = King: ').upper()
      if room_type in ['S', 'SINGLE']:
-        return single_rate
-     elif room_type in ['D' or 'DOUBLE']:
-        return double_rate
-     elif room_type in ['K' or 'KING']:
-        return king_rate
+        return room_type, single_rate
+     elif room_type in ['D', 'DOUBLE']:
+        return room_type, double_rate
+     elif room_type in ['K', 'KING']:
+        return room_type, king_rate
      else:
         print('Invalid input, try again.')
 
 
 def get_num_guests(room_type):
 
-    if room_type in ['D' or 'Double']:
+    if room_type in ['D' or 'DOUBLE']:
+        print()
         num_guests = v.get_range(prompt=f'How many guests will be staying in the {room_type} room: ', low=1, high=4)
         return num_guests
     elif room_type in ['S', 'SINGLE', 'K', 'KING']:
+        print()
         num_guests = v.get_range(prompt=f'How many guests will be staying in the {room_type} room: ', low=1, high=2)
         return num_guests
     else:
@@ -122,56 +124,24 @@ def calc_surcharge(num_guests):
 
 
 def get_number_of_nights(room_type, num_guests, room_type_rate):
-
-    print(f'How many days will you want to book a {room_type} room, at the rate of ${room_type_rate}')
-    num_nights = input(f'With {num_guests} at ')
+    #MUST VALIDATE
+    num_nights = v.get_num(prompt=f'How many nights will you want to book a {room_type} room, with {num_guests} guests '
+                                  f'at the rate of ${room_type_rate}: ', data_type='int')
 
     return num_nights
-
-
-def display_booking(dow, room_type, room_type_rate, num_guests, surcharge):
-    print()
-    print(f'You chose {dow}')
-    print(f'Room type: {room_type}')
-    print(f'With {num_guests}')
-    if num_guests > 0:
-        print(f'With a surcharge of ${surcharge}')
-        total_charge = room_type_rate + surcharge
-        print(f'So your total charge for this booking is: ${total_charge}')
-    else:
-        total_charge = room_type_rate
-        print(f'Your total charge for this booking is: ${total_charge}')
-
 
 def confirm_booking(num_nights, total_charge):
 
     print(f'Would you like to confirm your booking for {num_nights} nights at the total charge of ${total_charge}')
-
-    while True:
-     confirm = v.get_choice(prompt='Y=Yes or N=no').lower()
-     if confirm in ['yes', 'y']:
-        # print(f'Your total bill is ${total_charge}')
-        # print('We are looking forward to seeing you soon!')
-        return True
-     elif confirm in ['no', 'n']:
-        # print('Thank you for making use of our service')
-        # print('Hope to see you again soon')
-        return False
-     else:
-         print('Error! You have not input a yes or no')
-
+    confirm = v.get_choice(prompt='Y=Yes or N=no: ')
 
 def get_do_you_want_to_continue():
 
-    while True:
-      choice  = v.get_choice(prompt='Would you like to book another room  [yes/no]: ').lower()
-      if choice in ['yes', 'y']:
-        return True
-      elif choice in ['no', 'n']:
-        print('Thank you for making use of our booking service')
-        return False
-      else:
-        exit()
+     choice  = v.get_choice(prompt='Would you like to book another room  [yes/no]: ')
+     if choice == 'yes' or 'y':
+         return False
+     else:
+         return True
 
 
 def main():
