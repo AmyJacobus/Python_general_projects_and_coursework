@@ -7,6 +7,7 @@ Description:
 """
 
 import random
+import sys
 import validation as v
 
 # authorship
@@ -30,10 +31,8 @@ def welcome_msg():
 
 def get_dow():
 
-    while True:
-
         print("What day of the week would you like to check in? ")
-        dow = v.get_dow(prompt='MONDAY - SUNDAY')
+        dow = v.get_dow(prompt='MONDAY - SUNDAY: ')
 
         return dow
 
@@ -48,15 +47,15 @@ def get_dow_rate(dow):
         return BASE_RATE
     else:
         print('Program error')
-        print('Exiting the program now')
+        print('Exiting the program now..')
         exit()
 
 
 def get_avail_rooms():
         # WHAT EXACTLY IS HAPPENING HERE
-    num_single = random.randint(0, 9)
-    num_double = random.randint(0, 11)
-    num_king= random.randint(0, 3)
+    num_single = random.randint(0, 8)
+    num_double = random.randint(0, 10)
+    num_king= random.randint(0, 2)
 
     return num_single, num_double, num_king
 
@@ -77,43 +76,43 @@ def get_room_type_rate(dow_rate):
 
      # print(f'{dow} available rooms')
      print('='*50)
-     print(f'{num_single} single rooms (2 guest max) available at {single_rate}')
-     print(f'{num_double} double rooms(4 guest max) available at {double_rate}')
-     print(f'{num_king} king rooms (2 guest max) available at {king_rate}')
+     print()
+     print(f'{num_single} single rooms (2 guest max) available at ${single_rate}')
+     print(f'{num_double} double rooms(4 guest max) available at ${double_rate}')
+     print(f'{num_king} king rooms (2 guest max) available at ${king_rate}')
+     print()
 
      print('What room would you like to book: ')
 
      while True:
-         room_type = input('S= Single, D = Double, K = King').upper()
+         room_type = input('S = Single, D = Double, K = King: ').upper()
          if room_type in ['S', 'SINGLE']:
-             return 'SINGLE', dow_rate
+             return single_rate
          elif room_type in ['D' or 'DOUBLE']:
-             return 'DOUBLE', dow_rate * 1.5
+             return double_rate
          elif room_type in ['K' or 'KING']:
-             return 'KING', dow_rate * 1.25
+             return king_rate
          else:
              print('Invalid input, try again.')
 
-         return room_type
 
 def get_num_guests(room_type):
 
-        num_guests = v.get_range(prompt='How many guests will be staying in the room: ', low=0, high=5)
+        num_guests = v.get_range(prompt='How many guests will be staying in the room: ', low=1, high=4)
 
         return num_guests
+
 
 def calc_surcharge(num_guests):
 
         if num_guests == 1:
-            surcharge = 0
+            return 0
         elif num_guests == 2:
-            surcharge = 10
+            return 10
         elif num_guests == 3:
-            surcharge = 18
+            return 18
         elif num_guests == 4:
-            surcharge = 32
-
-        return surcharge
+            return 32
 
 
 def get_number_of_nights(room_type, num_guests, room_type_rate):
@@ -140,29 +139,33 @@ def display_booking(dow, dow_rate, room_type, room_type_rate, num_guests, surcha
 
 def confirm_booking(num_nights, total_charge):
         #  prompt the user to confirm their booking num_nights & total_charge
-        print(f'Would you like to confirm your booking for {num_nights} nights at the total charge of ${total_charge}')
+    print(f'Would you like to confirm your booking for {num_nights} nights at the total charge of ${total_charge}')
 
-        while True:
-            confirm = v.get_choice(prompt='Y=Yes or N=no').lower()
-            if confirm in ['yes','y']:
-                print(f'Your total bill is ${total_charge}')
-                print('We are looking forward to seeing you soon!')
-                break
-            elif confirm in ['no','n']:
-                print('Thank you for making use of our service')
-                print('Hope to see you again soon')
-                exit()
+    while True:
+     confirm = v.get_choice(prompt='Y=Yes or N=no').lower()
+     if confirm in ['yes','y']:
+        # print(f'Your total bill is ${total_charge}')
+        # print('We are looking forward to seeing you soon!')
+        return True
+     elif confirm in ['no','n']:
+        # print('Thank you for making use of our service')
+        # print('Hope to see you again soon')
+        return False
+     else:
+         print('Error! You have not input a yes or no')
 
 
 def get_do_you_want_to_continue():
         # ISSUE
-        while True:
-          choice  = v.get_choice(prompt= 'Would you like to book another room  [yes/no]: ').lower()
-          if choice in ['yes','y']:
-              main()
-          elif choice in ['no','n']:
-              print('Thank you for making use of our booking service')
-              exit()
+    while True:
+      choice  = v.get_choice(prompt= 'Would you like to book another room  [yes/no]: ').lower()
+      if choice in ['yes','y']:
+        return True
+      elif choice in ['no','n']:
+        print('Thank you for making use of our booking service')
+        return False
+      else:
+          exit()
 
 
 def main():

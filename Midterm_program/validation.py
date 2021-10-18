@@ -10,17 +10,16 @@ their error.
 
 # authorship
 
+
 def get_dow(prompt):
 
     while True:
-        dow = input(f'{prompt}')
-        if dow in ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']:
-            return False
+        dow = input(f'{prompt}').upper()
+        if dow in ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY','SUNDAY']:
+            return dow
         else:
             print('Error! Please type in a day of the week.')
-            return True
 
-    return dow
 
 def get_num(prompt, data_type='int'):
 
@@ -29,9 +28,9 @@ def get_num(prompt, data_type='int'):
         user_input = input(prompt)
 
         if data_type == 'int':
-            number = int(user_input)
+            user_input = int(user_input)
         elif data_type == 'float':
-            number = float(user_input)
+            user_input = float(user_input)
         else:
             print("Entry must be a number")
 
@@ -52,6 +51,7 @@ def get_pos(prompt, limit, data_type='int'):
         else:
             print(f'The number cannot be below {limit}')
 
+
 def get_range(prompt, low, high, data_type='int'):
 
     while True:
@@ -69,14 +69,15 @@ def get_range(prompt, low, high, data_type='int'):
             print("ERROR")
             exit()
 
+
 def get_choice(prompt):
 
     while True:
 
         choice = input(f'{prompt}').lower()
-        if choice in ['yes','y']:
+        if choice in ['yes', 'y']:
             break
-        elif choice in ['no','n']:
+        elif choice in ['no', 'n']:
             break
         else:
             print('You have not input a yes or no.Try again.')
