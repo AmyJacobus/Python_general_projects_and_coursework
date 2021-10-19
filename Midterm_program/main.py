@@ -16,7 +16,7 @@ __status__ = 'Development'
 
 def main():
     """
-    This is main, it calls different functions from the hotel.py module. It assigns some of their return into variables
+    This is main, it calls different functions from the hotel module. It assigns some of their return into variables
     and assigns some of those variables to other functions in order to run them. Basically main is running the program.
     It also puts the program in a while loop, so the user can book more than one room at the time, and once they no
     longer want to book a room, it will get out of the loop and provide the user with the grand total charge of their

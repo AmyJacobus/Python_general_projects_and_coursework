@@ -33,7 +33,7 @@ def get_num(prompt, data_type='int'):
     has inserted an integer or a float, if not, it will tell the user that they must enter a number and try again.
     :param prompt: There to be used by other functions to create a message to ask the user
     :param data_type: assigns the data_type as integer, can be changed once the function is called in other modules.
-    :return: user_input
+    :return: user_input.
     """
 
     while True:
@@ -121,7 +121,7 @@ def get_choice(prompt):
 
 
 def main():
-    get_room_type(prompt='What room would you like D = DOUBLE: ', data_type='str')
+    print('WE USE THIS TO TEST')
 
 
 if __name__ == "__main__":

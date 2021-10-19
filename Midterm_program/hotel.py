@@ -222,3 +222,9 @@ def get_do_you_want_to_continue():
         return True
     else:
         return False
+
+def main():
+    print('WE USE THIS TO TEST')
+
+if __name__ == "__main__":
+      main()
