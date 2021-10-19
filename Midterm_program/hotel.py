@@ -97,7 +97,7 @@ def get_room_rates(dow_rate):
     """
 
     single_rate = dow_rate
-    double_rate = dow_rate * 15
+    double_rate = dow_rate * 1.5
     king_rate = dow_rate * 1.25
 
     return int(single_rate), int(double_rate), int(king_rate)
