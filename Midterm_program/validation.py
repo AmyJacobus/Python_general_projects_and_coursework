@@ -3,17 +3,23 @@
 """
 Programmer: Ammishaddai Jacobus
 Date: Oct 15, 2021
-Description: This is a validation module to validate the input from users. It validates if the users input an integer,
-if they input a number, a positive number, or a string, and if they not input the right data, it will notify them of
-their error.
+Description:
 """
 
-# authorship
 
-import hotel as h
+# authorship
+__author__ = 'Ammishaddai Jacobus'
+__version__ = '1.0'
+__date__ = 'Oct 15, 2021'
+__status__ = 'Development'
+
 
 def get_dow(prompt):
-
+    """
+    THis functions basically validates if the user input is a day of the week or not, if not, it will display an ERROR.
+    :param prompt: There to be used by other functions to create a message to ask the user
+    :return: n/a
+    """
     while True:
         dow = input(f'{prompt}').upper()
         if dow in ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY','SUNDAY']:
@@ -21,8 +27,14 @@ def get_dow(prompt):
         else:
             print('Error! Please type in a day of the week.')
 
-
 def get_num(prompt, data_type='int'):
+    """
+    A function the makes use of an while to ask the user for input, it checks with the user an if else if the user
+    has inserted an integer or a float, if not, it will tell the user that they must enter a number and try again.
+    :param prompt: There to be used by other functions to create a message to ask the user
+    :param data_type: assigns the data_type as integer, can be changed once the function is called in other modules.
+    :return: user_input
+    """
 
     while True:
 
@@ -39,6 +51,16 @@ def get_num(prompt, data_type='int'):
 
 
 def get_pos(prompt, limit, data_type='int'):
+    """
+    This function makes use of a while loop to ask the user for their input that it
+    has to be a positive number, so cannot be below 0. It makes sure the user input is an integer or a float, and
+    it only returns number if the user input is higher than 0. Otherwise it will tell the user that the number cannot
+    be below 0 and get them to insert the input again, until they do it right.
+    :param prompt: to prompt the user for input in other functions
+    :param limit: to be able to assign a limit
+    :param data_type: to be able to assign the input a data type
+    :return: number
+    """
 
     while True:
 
@@ -56,7 +78,15 @@ def get_pos(prompt, limit, data_type='int'):
 
 
 def get_range(prompt, low, high, data_type='int'):
-
+    """
+    THis function uses a while loop to check if they user has input a number between a certain low and high, other
+    it will display an error and exit the program.
+    :param prompt:
+    :param low:
+    :param high:
+    :param data_type:
+    :return:
+    """
     while True:
         user_input = input(f'{prompt} (Range = {low}-{high}): ')
 
@@ -74,6 +104,13 @@ def get_range(prompt, low, high, data_type='int'):
 
 
 def get_choice(prompt):
+    """
+    This function validates if the user has input, yes, y, n, or no, makes it all lowercase, and returns choice to the
+    main program to be used by other functions later. If not it will tells the user that there has been an error, that
+    they have not inserted yes or no, and to try again.
+    :param prompt: to be used to write a message for input when calling this function in other modules/functions.
+    :return: choice
+    """
 
     while True:
         choice = input(f'{prompt}').lower()
@@ -84,7 +121,7 @@ def get_choice(prompt):
 
 
 def main():
-    get_choice(prompt='yes or no: ')
+    get_room_type(prompt='What room would you like D = DOUBLE: ', data_type='str')
 
 
 if __name__ == "__main__":

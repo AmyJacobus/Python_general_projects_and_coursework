@@ -1,9 +1,28 @@
 #!/usr/bin/env python3
 
+"""
+Programmer:
+Date:
+Description:
+"""
+
 import hotel
 
+# authorship
+__author__ = 'Ammishaddai Jacobus'
+__version__ = '1.0'
+__date__ = 'Oct 15, 2021'
+__status__ = 'Development'
 
 def main():
+    """
+    This is main, it calls different functions from the hotel.py module. It assigns some of their return into variables
+    and assigns some of those variables to other functions in order to run them. Basically main is running the program.
+    It also puts the program in a while loop, so the user can book more than one room at the time, and once they no
+    longer want to book a room, it will get out of the loop and provide the user with the grand total charge of their
+    booking.
+    :return: n/a
+    """
 
     loop = True
     grand_total_charge = 0
@@ -23,7 +42,7 @@ def main():
         num_nights = hotel.get_number_of_nights(room_type, num_guests, total_room_rate)
         total_charge = total_room_rate * num_nights
 
-        book_another = hotel.confirm_booking(num_guests, total_charge)
+        book_another = hotel.confirm_booking(num_nights, total_charge)
         if book_another in ['yes','y']:
             grand_total_charge += total_charge
 
@@ -37,5 +56,5 @@ def main():
     print('='*50)
 
 
-if __name__ == "__main__":
-     main()
+if __name__ == "__main__": # Basically if the name of the module is equal to main
+     main() # It calls mains
