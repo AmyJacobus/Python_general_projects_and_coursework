@@ -226,5 +226,6 @@ def get_do_you_want_to_continue():
 def main():
     print('WE USE THIS TO TEST')
 
-if __name__ == "__main__":
-      main()
+if __name__ == "__main__": # Basically if the name of the module is equal to main
+      main()  # It calls mains
+

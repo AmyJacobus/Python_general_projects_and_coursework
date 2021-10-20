@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 """
-Programmer:
-Date:
-Description:
+Programmer: Ammishaddai Jacobus
+Date: Oct 15, 2021
+Description: This is the main module that basically runs the main program, it imports different functions from the
+hotel module and runs them in a while loop.
 """
 
 import hotel

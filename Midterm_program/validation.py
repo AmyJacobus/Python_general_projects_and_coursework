@@ -3,7 +3,8 @@
 """
 Programmer: Ammishaddai Jacobus
 Date: Oct 15, 2021
-Description:
+Description: This module is used to validate several inputs in different modules and functions. It validates the user
+input for day of the week, for number input, positive input and range input and lastly their choice input.
 """
 
 
@@ -124,5 +125,5 @@ def main():
     print('WE USE THIS TO TEST')
 
 
-if __name__ == "__main__":
-      main()
+if __name__ == "__main__": # Basically if the name of the module is equal to main
+      main()  # It calls mains
