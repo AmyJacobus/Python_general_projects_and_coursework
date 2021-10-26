@@ -2,17 +2,17 @@
 
 import validation as v
 
-def list(students):
-    if len(students) == 0:
-        print("There are no students in the list.\n")
-        return
-    else:
-        i = 1
-        for student in students:
-            row = student
-            print(str(i) + ". " + row[0] + " (" + str(row[1]) + ")")
-            i += 1
-        print()
+# def list(students):
+#     if len(students) == 0:
+#         print("There are no students in the list.\n")
+#         return
+#     else:
+#         i = 1
+#         for student in students:
+#             row = student
+#             print(str(i) + ". " + row[0] + " (" + str(row[1]) + ")")
+#             i += 1
+#         print()
 
 
 def add(students, next_student_id):
@@ -35,8 +35,8 @@ def add(students, next_student_id):
 def find_student_index(students, next_student_id):
 
     for student in students:
-        if student[0] == next_student_id
-         return students.index(student) # This will return the student index to me
+        if student[0] == next_student_id:
+            return students.index(student) # This will return the student index to me
 
     return -1 # Would never be a valida index, meaning the student is not in the list
 
@@ -50,7 +50,7 @@ def delete(students):
         print("There are no students in the list.\n")
         return
 
-     student_id = v.get_num(prompt='Please enter the Student ID to be deleted: ')
+    student_id = v.get_num(prompt='Please enter the Student ID to be deleted: ')
 
     student_index = find_student_index(students, student_id)
     if student_index == -1:
