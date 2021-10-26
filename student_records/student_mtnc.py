@@ -32,3 +32,6 @@ def delete(movie_list):
     else:
         movie = movie_list.pop(number - 1)
         print(movie[0] + " was deleted.\n")
+
+def update():
+    print()
