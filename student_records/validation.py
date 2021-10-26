@@ -33,17 +33,22 @@ def get_range(prompt, low, high, data_type='int'):
     while True:
         user_input = input(f'{prompt} (Range = {low}-{high}): ')
 
-        if data_type == 'int':
-            number = int(user_input)
-        else:
-            number = float(user_input)
+        try:
+            if data_type == 'int':
+                number = int(user_input)
+            else:
+                number = float(user_input)
 
-        if number > low and number <= high:
-            return number
-
-        else:
-            print("Entry must be greater than", low,
+            if number > low and number <= high:
+                return number
+            else:
+                print("Entry must be greater than", low,
                   "and less than or equal to", high)
+
+        except ValueError:
+            print('Invalid Input: Please enter a positive number')
+
+
 
 
 def get_positive(prompt, limit, data_type='int'):
@@ -88,7 +93,14 @@ def get_num():
             continue
 
 def get_string(prompt):
-    print()
+
+    while True:
+        user_input = input(f'{prompt}: ')
+
+        if user_input > '':
+            return user_input
+        else:
+            print(f'Invalid Input: Please enter a value')
 
 
 def get_yes_no(prompt='y=Yes, n= No'):
