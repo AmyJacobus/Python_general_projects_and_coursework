@@ -9,8 +9,8 @@ def display_menu():
     print('='*50)
     print('1 - List all students')
     print('2 - Add a student')
-    print('3 - Update a student')
-    print('4 - Delete a student')
+    print('3 - Delete a student')
+    print('4 - Update a student')
     print('0 - Exit program')
     print()
 

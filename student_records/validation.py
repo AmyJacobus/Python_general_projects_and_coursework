@@ -77,14 +77,14 @@ def get_positive(prompt, limit, data_type='int'):
             print(f'The number cannot be below {limit}')
 
 
-def get_num():
+def get_num(prompt):
     """
     This function checks if the user has typed in a number or not, and does this by using a try and except valueError.
     :return: n/a
     """
     while True:
 
-        value = input('Write a number: ')
+        value = input(f'{prompt}')
         try:
             value = int(value)
             break
