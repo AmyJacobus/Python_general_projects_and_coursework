@@ -65,17 +65,38 @@ def delete(students):
     confirm = input(f'Please confirm that you want to delete student ID# {student_id}'
           f' {student[1]} {student[2]}')
 
-    student = students[student_index]
+    if confirm:
+        student = students.pop(student_index)
+        print(f'Student ID # {student_id} {student[1]} {student[2]} was deleted.')
+    else:
+        print('Delete was cancelled!')
 
-    print(f'Do you want do delete the student ID # {student[0]} {student[1]} {student[2]}')
-    user_input = input('Y=Yes and N=No').lower()
-    if user_input in ['no','n']:
-        print('Delete has been cancelled')
+
+def update(students):
+    # can't use get string, it's causing issues - you just cant use that validation here
+    print()
+    print('Update Student')
+    print('_' * 50)
+
+    if len(students) == 0:
+        print("There are no students in the database.\n")
         return
 
-    students.pop(student_index)
-    print(f'Student ID # {student[0]} {student[1]} {student[2]} was deleted.')
+    student_id = input('Please enter the Student ID to be updated: ')
 
+    student_index = find_student_index(students, student_id)
+    # print(student_id)#test
+    if student_index == -1:
+        print(f'Student ID #{student_id} not found.')
+        return
 
-# def update():
-#     print()
+    student = students[student_index] #  I have the student now
+
+    confirm = input(f'Please confirm that you want to update the student ID# {student_id}'
+          f' {student[1]} {student[2]} (y/n): ')
+
+    if confirm:
+        student = students.append(student_index)
+        print(f'Student ID # {student_id} {student[1]} {student[2]} was updated.')
+    else:
+        print('Update was cancelled')
