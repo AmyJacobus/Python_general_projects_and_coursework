@@ -2,17 +2,18 @@
 
 import validation as v
 
-# def list(students):
-#     if len(students) == 0:
-#         print("There are no students in the list.\n")
-#         return
-#     else:
-#         i = 1
-#         for student in students:
-#             row = student
-#             print(str(i) + ". " + row[0] + " (" + str(row[1]) + ")")
-#             i += 1
-#         print()
+def list(students):
+    if len(students) == 0:
+        print("There are no students in the database.\n")
+        return
+
+    print(f"{'ID':4s} {'First Name':20s} {'Last Name':20s}")
+    print('-'*4, '_'*20, '_'*20)
+
+    for student in students:
+        print(f'{student[0]:4d}  {student[1]:20s} {student[2]:20s}')
+
+    print()
 
 
 def add(students, next_student_id):
