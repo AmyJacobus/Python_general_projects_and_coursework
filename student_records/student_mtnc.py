@@ -33,13 +33,14 @@ def add(students, next_student_id):
     print(f'Student ID #{next_student_id} {first_name} {last_name} was added.')
 
 
-def find_student_index(students, next_student_id):
+def find_student_index(students, student_id):
 
     for student in students:
-        if student[0] == next_student_id:
-            return students.index(student) # This will return the student index to me
+        if student_id == student[0]:
+            return students.index(student)
 
-    return -1 # Would never be a valida index, meaning the student is not in the list
+    return -1
+
 
 def delete(students):
 
@@ -48,15 +49,21 @@ def delete(students):
     print('_' * 50)
 
     if len(students) == 0:
-        print("There are no students in the list.\n")
+        print("There are no students in the database.\n")
         return
 
-    student_id = v.get_num(prompt='Please enter the Student ID to be deleted: ')
+    student_id = input('Please enter the Student ID you would like to delete: ')
 
     student_index = find_student_index(students, student_id)
+    # print(student_id)#test
     if student_index == -1:
-        print('Student not found')
+        print(f'Student ID #{student_id} not found.')
         return
+
+    student = students[student_index] #  I have the student now
+
+    confirm = input(f'Please confirm that you want to delete student ID# {student_id}'
+          f' {student[1]} {student[2]}')
 
     student = students[student_index]
 

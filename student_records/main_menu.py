@@ -34,7 +34,7 @@ def main():
         elif command == 4:
             sm.update()
         elif command == 0:
-            break
+            exit()
         else:
             print("Not a valid command. Please try again.\n")
 

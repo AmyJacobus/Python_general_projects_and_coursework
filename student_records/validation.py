@@ -103,9 +103,17 @@ def get_string(prompt):
             print(f'Invalid Input: Please enter a value')
 
 
-def get_yes_no(prompt='y=Yes, n= No'):
-    print()
+def get_yes_no(prompt='(y=Yes, n= No)'):
 
+    while True:
+        user_input = input(f'{prompt} (y=yes | n=no): ').lower()
+
+        if user_input in []:
+            return True
+        elif user_input in []:
+            return False
+        else:
+            print('Invalid Input: Please enter a y=yes, n=no')
 
 def main():
     """
