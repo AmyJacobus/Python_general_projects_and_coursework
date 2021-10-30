@@ -65,7 +65,7 @@ def delete(students):
     confirm = input(f'Please confirm that you want to delete student ID# {student_id}'
           f' {student[1]} {student[2]} (y=yes, n=no): ')
 
-    if confirm:
+    if confirm in ['y','yes']:
         student = students.pop(student_index)
         print(f'Student ID # {student_id} {student[1]} {student[2]} was deleted.')
     else:
