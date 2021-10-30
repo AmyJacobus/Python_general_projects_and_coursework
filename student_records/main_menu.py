@@ -32,7 +32,7 @@ def main():
         elif command == 3:
             sm.delete(students)
         elif command == 4:
-            sm.update()
+            sm.update(students)
         elif command == 0:
             exit()
         else:

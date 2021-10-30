@@ -63,7 +63,7 @@ def delete(students):
     student = students[student_index] #  I have the student now
 
     confirm = input(f'Please confirm that you want to delete student ID# {student_id}'
-          f' {student[1]} {student[2]}')
+          f' {student[1]} {student[2]} (y=yes, n=no): ')
 
     if confirm:
         student = students.pop(student_index)
@@ -74,6 +74,10 @@ def delete(students):
 
 def update(students):
     # can't use get string, it's causing issues - you just cant use that validation here
+
+    original_first_name = students[1]
+    original_last_name = students[2]
+
     print()
     print('Update Student')
     print('_' * 50)
@@ -95,7 +99,9 @@ def update(students):
     confirm = input(f'Please confirm that you want to update the student ID# {student_id}'
           f' {student[1]} {student[2]} (y/n): ')
 
-    if confirm:
+    if confirm in ['y', 'yes']:
+        new_name = input(f'Please enter the Students First Name or press ENTER to keep {student[1]}: ')
+        new_last_name = input(f'Please enter the Students First Name or press ENTER to keep {student[2]}: ')
         student = students.append(student_index)
         print(f'Student ID # {student_id} {student[1]} {student[2]} was updated.')
     else:

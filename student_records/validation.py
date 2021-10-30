@@ -93,7 +93,7 @@ def get_num(prompt):
             continue
 
 def get_string(prompt):
-
+# STILL NEED TO FIX THIS VALIDATION.
     while True:
         user_input = input(f'{prompt}: ')
 
@@ -103,20 +103,20 @@ def get_string(prompt):
             print(f'Invalid Input: Please enter a value')
 
 
-# def get_yes_no(prompt):
-#
-#     while True:
-#         if prompt='':
-#             user_input = input(f'{prompt} (y=yes | n=no): ').lower()
-#         else:
-#             user_input = input(f'{prompt=''}') # NEED TO FINISH THIS ONE - BIG ERROR
-#
-#         if user_input in []:
-#             return True
-#         elif user_input in []:
-#             return False
-#         else:
-#             print('Invalid Input: Please enter a y=yes, n=no')
+def get_yes_no(prompt):
+
+    while True:
+        if prompt == '':
+            user_input = input('yes=yes|n=no: ').lower()
+        else:
+            user_input = input(f'{prompt} (yes=yes|n=no: ').lower()
+
+        if user_input in ['y','yes']:
+            return True
+        elif user_input in ['n','no']:
+            return False
+        else:
+            print('Invalid Input: Please enter a y=yes, n=no')
 
 def main():
     """
