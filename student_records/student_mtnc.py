@@ -120,3 +120,9 @@ def update(students):
               f'{students[student_index][1]} {students[student_index][2]} was updated.')
     else:
         print('Update was cancelled')
+
+def main():
+    print('In here we test')
+
+if __name__ == "__main__":
+    main()
