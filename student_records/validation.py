@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 
+
 """
-Programmer: Ammishaddai Jacobus
-Date: Oct 06, 2021
-Description: This validation module consinsts of 3 different functions:
-get_range: To be able to validate if the user's input is between the two ranges allowed
-get_positive: To see if the user's input is a positive numbers or not
-get_num: To see if the user has input a number at all or not
+Programmers: Ammishaddai Jacobus
+Date: October 31, 2021
+Description:Description: This module is used to validate several inputs in different modules and functions. It validates
+user input range, positive number input, number input, string input and yes/no input and if they do not input the
+right value or data type, outputs an error message and asks the user to try again.
 """
 
 
-# Authorship information
+# Authorship
 __author__ = 'Ammishaddai Jacobus'
-__version__ = '2.0'
-__date__ = 'Oct 6, 2021'
+__version__ = '1.0'
+__date__ = 'Oct 31, 2021'
 __status__ = 'Development'
 
 
@@ -49,8 +49,6 @@ def get_range(prompt, low, high, data_type='int'):
             print('Invalid Input: Please enter a positive number')
 
 
-
-
 def get_positive(prompt, limit, data_type='int'):
     """
     This function takes user input and check if it meets the int data type, if the int is bigger than a certain limit
@@ -80,11 +78,12 @@ def get_positive(prompt, limit, data_type='int'):
 def get_num(prompt):
     """
     This function checks if the user has typed in a number or not, and does this by using a try and except valueError.
+    :param prompt: Here to take in the user input
     :return: n/a
     """
     while True:
 
-        value = input('Write a number: ')
+        value = input(f'{prompt}: ')
         try:
             value = int(value)
             break
@@ -94,7 +93,11 @@ def get_num(prompt):
 
 
 def get_string(prompt):
-
+    """
+    This function basically checks if the user has typed in a value or not.
+    :param prompt:
+    :return: It returns user_input back to the main program so other functions can make use of it.
+    """
     while True:
         user_input = input(f'{prompt}: ')
 
@@ -105,6 +108,12 @@ def get_string(prompt):
 
 
 def get_yes_no(prompt):
+    """
+    This function checks if the user types in a yes or not, otherwise it will tell the user that there it outputs
+    a message telling the user that they should type in a yes or no.
+    :param prompt: Here so you can call this function, add a string for input
+    :return: True or False, to be used by the while loop
+    """
 
     while True:
         if prompt == '':
@@ -119,8 +128,15 @@ def get_yes_no(prompt):
         else:
             print('Invalid Input: Please enter a y=yes, n=no')
 
+
 def main():
-    get_num(prompt='Please type in a number: ')
+    """
+    This is the main function where you can call different of these functions to use them, or since this is a validation
+    module, to test them.
+    :return: n/a
+    """
+    get_num()
+    get_string(prompt='Please type in a string: ')
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
