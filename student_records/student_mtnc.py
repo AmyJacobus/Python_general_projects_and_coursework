@@ -93,7 +93,7 @@ def delete(students):
         print("There are no students in the database.\n")
         return
 
-    student_id = int(input('Please enter the Student ID you would like to delete: '))
+    student_id = v.get_positive(prompt='Please enter the Student ID you would like to delete', limit=0)
 
     student_index = find_student_index(students, student_id)
 
@@ -103,7 +103,7 @@ def delete(students):
 
     student = students[student_index] #  I have the student now
 
-    confirm = input(f'Please confirm that you want to delete student ID# {student_id}'
+    confirm = v.get_string(prompt=f'Please confirm that you want to delete student ID # {student_id}'
           f' {student[1]} {student[2]} (y=yes, n=no): ')
 
     if confirm in ['y','yes']:
@@ -132,7 +132,7 @@ def update(students):
         print("There are no students in the database.\n")
         return
 
-    student_id = int(input('Please enter the Student ID to be updated: '))
+    student_id = v.get_positive(prompt='Please enter the Student ID to be updated: ', limit=0)
 
     student_index = find_student_index(students, student_id)
 
@@ -142,15 +142,15 @@ def update(students):
 
     student = students[student_index] #  I have the student now
 
-    confirm = input(f'Please confirm that you want to update the student ID# {student_id}'
+    confirm = v.get_string(prompt=f'Please confirm that you want to update the student ID# {student_id}'
           f' {student[1]} {student[2]} (y/n): ')
 
     og_name = students[student_index][1]
     og_last_name = students [student_index][2]
 
     if confirm in ['y', 'yes']:
-        new_name = input(f'Please enter the Students First Name or press ENTER to keep {student[1]}: ')
-        new_last_name = input(f'Please enter the Students First Name or press ENTER to keep {student[2]}: ')
+        new_name = v.get_string(prompt=f'Please enter the Students First Name or press ENTER to keep {student[1]}: ')
+        new_last_name = v.get_string(prompt=f'Please enter the Students First Name or press ENTER to keep {student[2]}: ')
 
         if new_name == '':
             print(f'No changes where made to ID #{student_id} first name.')

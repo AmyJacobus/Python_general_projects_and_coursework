@@ -62,7 +62,7 @@ def get_positive(prompt, limit, data_type='int'):
     """
 
     while True:
-        user_input = input(f'{prompt} greater than or equal to {limit}: ')
+        user_input = input(f'{prompt} must be greater than [{limit}]: ')
 
         if data_type == 'int':
             number = int(user_input)

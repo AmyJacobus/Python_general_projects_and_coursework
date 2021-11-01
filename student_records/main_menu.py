@@ -68,7 +68,7 @@ def main():
         input('Press Enter to continue...')
         print()
 
-        print("Bye!")
+    print("Bye!")
 
 
 if __name__ == "__main__": # Basically if the name of the module is equal to main
