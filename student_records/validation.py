@@ -43,7 +43,7 @@ def get_range(prompt, low, high, data_type='int'):
                 return number
             else:
                 print("Entry must be greater than", low,
-                  "and less than or equal to", high)
+                      "and less than or equal to", high)
 
         except ValueError:
             print('Invalid Input: Please enter a positive number')
@@ -129,9 +129,11 @@ def main():
     module, to test them.
     :return: n/a
     """
-    get_num()
+    get_num(prompt='Type in a number: ')
     get_string(prompt='Please type in a string: ')
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
     main()  # Run this specific program.
+
+

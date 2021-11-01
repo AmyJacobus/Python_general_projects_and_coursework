@@ -83,7 +83,8 @@ def delete(students):
     It handles for non numeric data, and student IDs that do not exists via the find_student_index
     It will prompt the user to confirm they want to delete the selected student, and then let the user know
     if the user was successfully deleted.
-    :param students: Passing the student list to this function, so it can be used in the different statements in the function
+    :param students: Passing the student list to this function, so it can be used in the different statements in the
+    function
     :return: no value
     """
     print()
@@ -102,12 +103,12 @@ def delete(students):
         print(f'Student ID #{student_id} not found.')
         return
 
-    student = students[student_index] #  I have the student now
+    student = students[student_index]  # I have the student now
 
     confirm = v.get_yes_no(prompt=f'Please confirm that you want to delete student ID # {student_id}'
-          f' {student[1]} {student[2]} (y=yes, n=no): ')
+                                  f' {student[1]} {student[2]} (y=yes, n=no): ')
 
-    if confirm in ['y','yes']:
+    if confirm in ['y', 'yes']:
         student = students.pop(student_index)
         print(f'Student ID # {student_id} {student[1]} {student[2]} was deleted.')
     else:
@@ -121,7 +122,8 @@ def update(students):
     It handles for non numeric data, and student IDs that do not exists via the find_student_index.
     It will prompt the user to confirm they want to update the selected student, and then let the user know
     if the user was successfully updated.
-    :param students: Passing the student list to this function, so it can be used in the different statements in the function
+    :param students: Passing the student list to this function, so it can be used in the different statements in the
+    function
     :return: no value
     """
 
@@ -141,13 +143,13 @@ def update(students):
         print(f'Student ID #{student_id} not found.')
         return
 
-    student = students[student_index] #  I have the student now
+    student = students[student_index]  # I have the student now
 
     confirm = v.get_yes_no(prompt=f'Please confirm that you want to update the student ID# {student_id}'
-          f' {student[1]} {student[2]} (y/n): ')
+                                  f' {student[1]} {student[2]} (y/n): ')
 
     og_name = students[student_index][1]
-    og_last_name = students [student_index][2]
+    og_last_name = students[student_index][2]
 
     if confirm in ['y', 'yes']:
         new_name = input(f'Please enter the Students First Name or press ENTER to keep {student[1]}: ')
@@ -167,7 +169,7 @@ def update(students):
             print('You did not type in anything, no changes were made.')
         else:
             print(f'Student ID # {student_id} {og_name} {og_last_name} was updated to '
-              f'{students[student_index][1]} {students[student_index][2]}.')
+                  f'{students[student_index][1]} {students[student_index][2]}.')
     else:
         print('Update was cancelled')
 
@@ -181,5 +183,5 @@ def main():
     print('In here we test')
 
 
-if __name__ == "__main__": # Basically if the name of the module is equal to main
-    main() # Run this specific program.
+if __name__ == "__main__":  # Basically if the name of the module is equal to main
+    main()  # Run this specific program.
