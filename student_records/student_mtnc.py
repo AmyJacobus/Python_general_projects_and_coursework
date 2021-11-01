@@ -31,6 +31,7 @@ def list(students):
         print("There are no students in the database.\n")
         return
 
+    print()
     print(f"{'ID':4s} {'First Name':20s} {'Last Name':20s}")
     print('-'*4, '_'*20, '_'*20)
 
@@ -52,8 +53,8 @@ def add(students, next_student_id):
     print('Add Student')
     print('_' * 50)
 
-    first_name = v.get_string(prompt='Please enter the student\'s First Name: ').title()
-    last_name = v.get_string(prompt='Please enter the student\'s Last Name: ').title()
+    first_name = v.get_string(prompt='Please enter the student\'s First Name').title()
+    last_name = v.get_string(prompt='Please enter the student\'s Last Name').title()
     print()
 
     students.append([next_student_id, first_name, last_name])
@@ -103,7 +104,7 @@ def delete(students):
 
     student = students[student_index] #  I have the student now
 
-    confirm = v.get_string(prompt=f'Please confirm that you want to delete student ID # {student_id}'
+    confirm = v.get_yes_no(prompt=f'Please confirm that you want to delete student ID # {student_id}'
           f' {student[1]} {student[2]} (y=yes, n=no) ')
 
     if confirm in ['y','yes']:
@@ -142,7 +143,7 @@ def update(students):
 
     student = students[student_index] #  I have the student now
 
-    confirm = v.get_string(prompt=f'Please confirm that you want to update the student ID# {student_id}'
+    confirm = v.get_yes_no(prompt=f'Please confirm that you want to update the student ID# {student_id}'
           f' {student[1]} {student[2]} (y/n) ')
 
     og_name = students[student_index][1]
@@ -166,7 +167,7 @@ def update(students):
             print('You did not type in anything, no changes were made.')
         else:
             print(f'Student ID # {student_id} {og_name} {og_last_name} was updated to '
-              f'{students[student_index][1]} {students[student_index][2]} was updated.')
+              f'{students[student_index][1]} {students[student_index][2]}.')
     else:
         print('Update was cancelled')
 

@@ -116,17 +116,11 @@ def get_yes_no(prompt):
     """
 
     while True:
-        if prompt == '':
-            user_input = input('yes=yes|n=no: ').lower()
+        choice = input(f'{prompt}').lower()
+        if choice in ['yes', 'y', 'n', 'no']:
+            return choice
         else:
-            user_input = input(f'{prompt} (yes=yes|n=no: ').lower()
-
-        if user_input in ['y','yes']:
-            return True
-        elif user_input in ['n','no']:
-            return False
-        else:
-            print('Invalid Input: Please enter a y=yes, n=no')
+            print('There has been an error, please type in a yes or no')
 
 
 def main():
