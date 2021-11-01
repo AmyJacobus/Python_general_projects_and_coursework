@@ -73,8 +73,5 @@ def main():
         print()
 
 
-
-
-
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
     main()  # Run this specific program.
