@@ -16,6 +16,7 @@ def display_menu():
 
 
 def main():
+
     students = [] # start empty
     next_student_id = 1  # Starting student ID at 1
 

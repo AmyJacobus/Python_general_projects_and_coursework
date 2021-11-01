@@ -36,7 +36,7 @@ def add(students, next_student_id):
 def find_student_index(students, student_id):
 
     for student in students:
-        if student_id == student[0]:
+        if student_id in student:
             return students.index(student)
 
     return -1
@@ -52,10 +52,10 @@ def delete(students):
         print("There are no students in the database.\n")
         return
 
-    student_id = input('Please enter the Student ID you would like to delete: ')
+    student_id = int(input('Please enter the Student ID you would like to delete: '))
 
     student_index = find_student_index(students, student_id)
-    # print(student_id)#test
+    # print(student_id)
     if student_index == -1:
         print(f'Student ID #{student_id} not found.')
         return
@@ -75,9 +75,6 @@ def delete(students):
 def update(students):
     # can't use get string, it's causing issues - you just cant use that validation here
 
-    original_first_name = students[1]
-    original_last_name = students[2]
-
     print()
     print('Update Student')
     print('_' * 50)
@@ -86,7 +83,7 @@ def update(students):
         print("There are no students in the database.\n")
         return
 
-    student_id = input('Please enter the Student ID to be updated: ')
+    student_id = int(input('Please enter the Student ID to be updated: '))
 
     student_index = find_student_index(students, student_id)
     # print(student_id)#test
@@ -99,10 +96,27 @@ def update(students):
     confirm = input(f'Please confirm that you want to update the student ID# {student_id}'
           f' {student[1]} {student[2]} (y/n): ')
 
+    og_name = students[student_index][1]
+    og_last_name = students [student_index][2]
+
     if confirm in ['y', 'yes']:
         new_name = input(f'Please enter the Students First Name or press ENTER to keep {student[1]}: ')
         new_last_name = input(f'Please enter the Students First Name or press ENTER to keep {student[2]}: ')
-        student = students.append(student_index)
-        print(f'Student ID # {student_id} {student[1]} {student[2]} was updated.')
+
+        if new_name == '':
+            print(f'No changes where made to ID #{student_id} first name.')
+        else:
+            students[student_index][1] = new_name
+
+        if new_last_name == '':
+            print(f'No changes where made to ID #{student_id} last name.')
+        else:
+            students[student_index][2] = new_last_name
+
+        if new_name == '' and new_last_name == '':
+            print('You did not type in anything, no changes were made.')
+        else:
+            print(f'Student ID # {student_id} {og_name} {og_last_name} was updated to'
+              f'{students[student_index][1]} {students[student_index][2]} was updated.')
     else:
         print('Update was cancelled')

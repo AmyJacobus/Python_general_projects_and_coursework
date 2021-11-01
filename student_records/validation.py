@@ -86,21 +86,22 @@ def get_num(prompt):
 
         value = input(f'{prompt}')
         try:
-            value = int(value)
-            break
+            if value == int(value):
+                break
         except ValueError:
             print('That is not a number,enter a number, please')
             continue
 
+
 def get_string(prompt):
-# STILL NEED TO FIX THIS VALIDATION.
+
     while True:
         user_input = input(f'{prompt}: ')
 
         if user_input > '':
             return user_input
         else:
-            print(f'Invalid Input: Please enter a value')
+            print(f'Invalid Input: Please enter a value.')
 
 
 def get_yes_no(prompt):
