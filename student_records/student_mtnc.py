@@ -105,7 +105,7 @@ def delete(students):
     student = students[student_index] #  I have the student now
 
     confirm = v.get_yes_no(prompt=f'Please confirm that you want to delete student ID # {student_id}'
-          f' {student[1]} {student[2]} (y=yes, n=no) ')
+          f' {student[1]} {student[2]} (y=yes, n=no): ')
 
     if confirm in ['y','yes']:
         student = students.pop(student_index)
@@ -144,7 +144,7 @@ def update(students):
     student = students[student_index] #  I have the student now
 
     confirm = v.get_yes_no(prompt=f'Please confirm that you want to update the student ID# {student_id}'
-          f' {student[1]} {student[2]} (y/n) ')
+          f' {student[1]} {student[2]} (y/n): ')
 
     og_name = students[student_index][1]
     og_last_name = students [student_index][2]
