@@ -132,7 +132,7 @@ def update(students):
         print("There are no students in the database.\n")
         return
 
-    student_id = v.get_positive(prompt='Please enter the Student ID to be updated: ', limit=0)
+    student_id = v.get_positive(prompt='Please enter the Student ID you would like to update', limit=0)
 
     student_index = find_student_index(students, student_id)
 
@@ -149,8 +149,8 @@ def update(students):
     og_last_name = students [student_index][2]
 
     if confirm in ['y', 'yes']:
-        new_name = v.get_string(prompt=f'Please enter the Students First Name or press ENTER to keep {student[1]}: ')
-        new_last_name = v.get_string(prompt=f'Please enter the Students First Name or press ENTER to keep {student[2]}: ')
+        new_name = input(f'Please enter the Students First Name or press ENTER to keep {student[1]}: ')
+        new_last_name = input(f'Please enter the Students First Name or press ENTER to keep {student[2]}: ')
 
         if new_name == '':
             print(f'No changes where made to ID #{student_id} first name.')
