@@ -93,6 +93,7 @@ def play(players, cards_nr_generator1,cards_nr_generator2):
         if bet in ['y', 'yes']:
             initial_bet += 0.25
         player_data['bet'] = initial_bet
+        print(player, player_data)
 
 
 
