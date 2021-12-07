@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 
 """
-Programmers:
-Date:
+Programmers: Ammishaddai Jacobus
+Date: Dec 7, 2021
 Description:
 """
+
 
 # Authorship information # Done by Amy
 __author__ = 'Ammishaddai Jacobus'
 __version__ = '1.0'
-__date__ = 'NEED TO BE DONE'
+__date__ = 'Dec 10, 2021'
 __status__ = 'Development'
 
+
 import random
+
 
 LINE_LENGTH = 100
 
@@ -69,7 +72,7 @@ def play(players, cards_nr_generator1,cards_nr_generator2):
     # cards_nr_generator1 = random.randint(1, 10)
     # cards_nr_generator2 = random.randint(1, 10)
 
-    for player in players.keys():
+    for player, player_data in players.items():
         print(f'Dealing to {player}')
         cards = [cards_nr_generator1, cards_nr_generator2]
         print(f'Cards:', *cards, sep=" ")
@@ -78,21 +81,19 @@ def play(players, cards_nr_generator1,cards_nr_generator2):
             if choice in ['y', 'yes']:
                 cards.append(cards_nr_generator1)
                 print(f'cards:', *cards, sep=" ")
-                players[player] = {"cards": cards }
+                player_data['cards'] = cards
             elif choice in ['n', 'no']:
                 cards_total = sum(cards)
-                players[player] = {"cards_total": cards_total}
+                player_data['cards_total'] = cards_total
                 print(f'{player} holds at {cards_total} ')
                 break
-        while True:
-            initial_bet = 0.25
-            bet = input('Do you want to double your 25 cent bet? (y=yes, n=no): ')
-            if bet in ['y', 'yes']:
-                initial_bet += 0.25
-                players[player] = {"bet": initial_bet}
-                return False
-            else:
-                return False
+
+        initial_bet = 0.25
+        bet = input('Do you want to double your 25 cent bet? (y=yes, n=no): ')
+        if bet in ['y', 'yes']:
+            initial_bet += 0.25
+        player_data['bet'] = initial_bet
+
 
 
 def dealer(players, cards_nr_generator1,cards_nr_generator2):
@@ -113,6 +114,34 @@ def dealer(players, cards_nr_generator1,cards_nr_generator2):
             print(f'{player} lost this round!')
             print(f'{player}\'s new balance is ${new_cash}')
 
+    # print(Dealing to{})
+    #
+    # # should use while or for loop here
+    # input('Do you want another card? (y=yes, n=no): ')
+    # print('Cards: RANDOM NR1, RANDOM NR2, RANDOM NR3')
+    # # if user says yes, continue to add more cards, until they go over 21 (then they lose!)
+    # # if they choose no, display player name, holds at  (Card total)
+    #
+    # print('Do you want to double your 25 cent beat? (y=yes, n=no): ')
+    #
+    # # GO TO NEXT PLAYER IN LINE (HOW TO DO THIS)
+    # #     If player2 cards_total = 21
+    # #         print('BLACKJACK FOR {player2')
+    # #     elif player2_cards > 21
+    # #         print(f'{player2}\'s card has exceeded 21.')
+    # #     elif player2_Cards < 21
+    # #         player2 = 'WINNER'
+    #
+    # # GO TO DEALER HAND, SHOULD HAVE ITS OWN DICTIONARY?
+    #     # CARD NUMBERS
+    #     # If dealer goes over 21
+    #         # - House loses
+    #
+    # # if dealer_total_card > 21 and player 1 <=21
+    # #     print(f'{player1} is a winner!')
+    # # if dealer_total_card > 21 and print(f'{player2 <=21} '
+    # #     print(f'{player2} is a winner!')
+
 
 def main():
 
@@ -122,8 +151,9 @@ def main():
 
     display_msg()
     get_players(players)
-    dealer(players, cards_nr_generator1, cards_nr_generator2)
+    play(players, cards_nr_generator1,cards_nr_generator2)
+    # dealer(players, cards_nr_generator1, cards_nr_generator2)
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
-    main()   # Run this specific program.
+    main()  # Run this specific program.

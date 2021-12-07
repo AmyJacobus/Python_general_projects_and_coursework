@@ -12,15 +12,23 @@ __version__ = '1.0'
 __date__ = 'NEED TO BE DONE'
 __status__ = 'Development'
 
-import random
+
+import game
 
 
 def play_game():
-    print()
+    """
+    Play game is the main outer while loop to keep playing rounds
+    return: n/a
+    """
 
 
 def main():
+
+    display_game_intro()
+
     play_game()
+
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
