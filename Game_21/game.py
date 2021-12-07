@@ -98,6 +98,8 @@ def play(players, cards_nr_generator1,cards_nr_generator2):
 
 
 def dealer(players, cards_nr_generator1,cards_nr_generator2):
+    # dealer compared to the highest the higher end
+    # checks the highest hand
 
     print('Dealing to the dealer')
     cards = [cards_nr_generator1, cards_nr_generator2]
