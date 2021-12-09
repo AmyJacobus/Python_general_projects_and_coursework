@@ -77,31 +77,40 @@ def play(players, cards_nr_generator1, cards_nr_generator2):
     print()
 
     for player, player_data in players.items():
-
         cash, cards, cards_total, bet = player_data.values()
 
         if cash < 0.25:
             print(f'{player} is out of funds, so out of the game!')
             continue
 
-    cards_nr_generator1 = random.randint(1, 10)
-    cards_nr_generator2 = random.randint(1, 10)
-
-    for player, player_data in players.items():
         print(f'Dealing to {player}')
+
+        cards_nr_generator1 = random.randint(1, 10)
+        cards_nr_generator2 = random.randint(1, 10)
+
         cards = [cards_nr_generator1, cards_nr_generator2]
+        player_data['cards'] = cards
         print(f'Cards:', *cards, sep=" ")
+
         while True:
+            cards_total = sum(cards)
+            player_data['cards_total'] = cards_total
+            if cards_total > 21:  # CHECKS IF PLAYER HAS EXCEEDED THE GAME LIMIT AND GET THEM OUT OF THE GAME IF SO
+                print(f'{player} has exceeded 21! You lose!')
+                break
+
             choice = input('Do you want another card? (y=yes, n= no): ').lower()
             if choice in ['y', 'yes']:
-                cards.append(cards_nr_generator1)
+                cards_nr_generator = random.randint(1, 10)
+                cards.append(cards_nr_generator)
                 print(f'cards:', *cards, sep=" ")
                 player_data['cards'] = cards
             elif choice in ['n', 'no']:
-                cards_total = sum(cards)
-                player_data['cards_total'] = cards_total
                 print(f'{player} holds at {cards_total} ')
                 break
+
+        if cards_total > 21:
+            continue
 
         initial_bet = 0.25
         bet = input('Do you want to double your 25 cent bet? (y=yes, n=no): ')
@@ -112,6 +121,7 @@ def play(players, cards_nr_generator1, cards_nr_generator2):
 
 
 def dealer(players):
+
     num_players_out = 0
     highest_hand = 0
 
@@ -126,7 +136,7 @@ def dealer(players):
 
     if num_players_out == len(players):
         print('All players exceeded 21, so dealer automatically WINS!')
-        # return 21  # ???????
+        return 21  # Return 21 because the dealer wins, we need the data for later
 
     print()
     print('Dealing to dealer')
@@ -135,18 +145,19 @@ def dealer(players):
     dealer_cards = []
     dealer_cards_total = 0
 
-    while dealer_cards_total != 21:
+    while dealer_cards_total < 21 or dealer_cards_total > highest_hand:
         card = random.randint(1, 10)
         dealer_cards.append(card)
         dealer_cards_total += card
+        print(f'Dealer\'s cards:', *dealer_cards, sep=" ")
+        break
 
     if dealer_cards_total > 21:
         print('Dealer\'s hand exceed 21!')
-    elif dealer_cards_total == 21:
-        print('Winner Winner Chicken Dinner!')
-        print('Dealer has won, he got 21!')
+    else:
+        print(f'cards:', *dealer_cards, sep=" ")
 
-    return dealer_cards_total  # Return 21 and total, this to compare with other players
+    return dealer_cards_total
 
 
 def display_winners(players, dealers_cards_total):
