@@ -182,6 +182,21 @@ def display_winners(players, dealers_cards_total):
         else:
             print('Dealer wins!')  # should he be winning??
 
+def display_rounds(players):
+    """
+    This function will display the round summary and how much money each player has currently.
+    :param players: 2D dictionary of all player's data
+    :return: number of players who still have cash
+    """
+
+    print('End of Round Summary')
+    print()
+    print('=' * LINE_LENGTH)
+    print()
+
+    for player, player_data
+        print(f'{player}\'s balance is')
+
 
 def main():
 
@@ -198,4 +213,4 @@ def main():
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
-    main()  # Run this specific program.
+    main()

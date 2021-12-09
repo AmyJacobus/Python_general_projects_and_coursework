@@ -25,10 +25,6 @@ def play_game():
 
 def main():
 
-    display_game_intro()
-
-    play_game()
-
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
