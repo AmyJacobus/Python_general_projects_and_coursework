@@ -191,7 +191,7 @@ def main():
 
     display_msg()
     get_players(players)
-    # START WHILE PLAY AGAIN HERE
+    # START WHILE PLAY AGAIN HERE.
     play(players, cards_nr_generator1, cards_nr_generator2)
     dealers_card_total = dealer(players)  # storing data in variable
     display_winners(players, dealers_card_total)
