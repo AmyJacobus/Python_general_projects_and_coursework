@@ -54,23 +54,38 @@ def get_players(players):
     print()
 
     while True:
+
         player = input('Enter name: ').lower()  # NEEDS FORMATTING F-STRING
+
         if player != 'done':
             player = player.title()
-            players[player] = {"cash": 1.0}
+            players[player] = {
+                'cash': 1.0,
+                'cards': [],
+                'cards_total': 0,
+                'bet': 0.25
+            }
         elif player == 'done':
             return players
 
 
-def play(players, cards_nr_generator1,cards_nr_generator2):
+def play(players, cards_nr_generator1, cards_nr_generator2):
     print()
     print('=' * LINE_LENGTH)
-    print('Starting game...')
+    print('Starting round...')
     print('=' * LINE_LENGTH)
     print()
 
-    # cards_nr_generator1 = random.randint(1, 10)
-    # cards_nr_generator2 = random.randint(1, 10)
+    for player, player_data in players.items():
+
+        cash, cards, cards_total, bet = player_data.values()
+
+        if cash < 0.25:
+            print(f'{player} is out of funds, so out of the game!')
+            continue
+
+    cards_nr_generator1 = random.randint(1, 10)
+    cards_nr_generator2 = random.randint(1, 10)
 
     for player, player_data in players.items():
         print(f'Dealing to {player}')
@@ -96,54 +111,65 @@ def play(players, cards_nr_generator1,cards_nr_generator2):
         print(player, player_data)
 
 
+def dealer(players):
+    num_players_out = 0
+    highest_hand = 0
 
-def dealer(players, cards_nr_generator1,cards_nr_generator2):
-    # dealer compared to the highest the higher end
-    # checks the highest hand
+    # CHECK IF ANY OF THE PLAYERS HAVEN'T EXCEEDED 21
+    # IF SO HE WINS
+    for player, player_data in players.items():
+        cards_total = player_data['cards_total']
+        if cards_total > 21:
+            num_players_out += 1
+        elif cards_total > highest_hand:
+            highest_hand = cards_total
 
-    print('Dealing to the dealer')
-    cards = [cards_nr_generator1, cards_nr_generator2]
-    print(f'Cards:', *cards, sep=" ")
+    if num_players_out == len(players):
+        print('All players exceeded 21, so dealer automatically WINS!')
+        # return 21  # ???????
 
-    dealer_total = sum(cards)
-    if dealer_total == 21:
-        print('Dealer is a winner!')
-        # all players lose!
-    elif dealer_total > 21:
-        for player in players.keys():
-            bet = players[player]["bet"]
-            cash = players[player]["cash"]
-            new_cash = cash - bet
-            print(f'{player} lost this round!')
-            print(f'{player}\'s new balance is ${new_cash}')
+    print()
+    print('Dealing to dealer')
+    print()
 
-    # print(Dealing to{})
-    #
-    # # should use while or for loop here
-    # input('Do you want another card? (y=yes, n=no): ')
-    # print('Cards: RANDOM NR1, RANDOM NR2, RANDOM NR3')
-    # # if user says yes, continue to add more cards, until they go over 21 (then they lose!)
-    # # if they choose no, display player name, holds at  (Card total)
-    #
-    # print('Do you want to double your 25 cent beat? (y=yes, n=no): ')
-    #
-    # # GO TO NEXT PLAYER IN LINE (HOW TO DO THIS)
-    # #     If player2 cards_total = 21
-    # #         print('BLACKJACK FOR {player2')
-    # #     elif player2_cards > 21
-    # #         print(f'{player2}\'s card has exceeded 21.')
-    # #     elif player2_Cards < 21
-    # #         player2 = 'WINNER'
-    #
-    # # GO TO DEALER HAND, SHOULD HAVE ITS OWN DICTIONARY?
-    #     # CARD NUMBERS
-    #     # If dealer goes over 21
-    #         # - House loses
-    #
-    # # if dealer_total_card > 21 and player 1 <=21
-    # #     print(f'{player1} is a winner!')
-    # # if dealer_total_card > 21 and print(f'{player2 <=21} '
-    # #     print(f'{player2} is a winner!')
+    dealer_cards = []
+    dealer_cards_total = 0
+
+    while dealer_cards_total != 21:
+        card = random.randint(1, 10)
+        dealer_cards.append(card)
+        dealer_cards_total += card
+
+    if dealer_cards_total > 21:
+        print('Dealer\'s hand exceed 21!')
+    elif dealer_cards_total == 21:
+        print('Winner Winner Chicken Dinner!')
+        print('Dealer has won, he got 21!')
+
+    return dealer_cards_total  # Return 21 and total, this to compare with other players
+
+
+def display_winners(players, dealers_cards_total):
+
+    total_winners = 0
+
+    for player, player_data in players.items():
+
+        cash, cards, cards_total, bet = player_data.values()
+
+        if cash < 0.25:
+            print(f'{player} is out of funds, so out of the game!')
+            continue
+
+        if dealers_cards_total > 21:
+            if cards_total <= 21:
+                total_winners += 1
+                player_data['cash'] += bet
+                print(player, 'is a winner!')
+            else:
+                player_data['cash'] -= bet
+        else:
+            print('Dealer wins!')  # should he be winning??
 
 
 def main():
@@ -154,8 +180,10 @@ def main():
 
     display_msg()
     get_players(players)
-    play(players, cards_nr_generator1,cards_nr_generator2)
-    # dealer(players, cards_nr_generator1, cards_nr_generator2)
+    # START WHILE PLAY AGAIN HERE
+    play(players, cards_nr_generator1, cards_nr_generator2)
+    dealers_card_total = dealer(players)  # storing data in variable
+    display_winners(players, dealers_card_total)
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
