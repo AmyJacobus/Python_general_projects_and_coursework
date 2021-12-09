@@ -145,12 +145,12 @@ def dealer(players):
     dealer_cards = []
     dealer_cards_total = 0
 
-    while dealer_cards_total < 21 or dealer_cards_total > highest_hand:
+    while dealer_cards_total < 21 or highest_hand > dealer_cards_total:
         card = random.randint(1, 10)
         dealer_cards.append(card)
         dealer_cards_total += card
-        print(f'Dealer\'s cards:', *dealer_cards, sep=" ")
-        break
+        print(dealer_cards_total)
+    print(f'Dealer\'s cards:', *dealer_cards, sep=" ")
 
     if dealer_cards_total > 21:
         print('Dealer\'s hand exceed 21!')
