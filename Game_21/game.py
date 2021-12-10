@@ -198,6 +198,34 @@ def display_rounds(players):
         print(f'{player}\'s balance is')
 
 
+def play_rounds(players):
+
+    cards_nr_generator1 = random.randint(1, 10)
+    cards_nr_generator2 = random.randint(1, 10)
+
+    setup_new_round(players)
+    play(players, cards_nr_generator1, cards_nr_generator2)
+    dealers_card_total = dealer(players)  # storing data in variable
+    display_winners(players, dealers_card_total)
+
+
+def setup_new_round(players):
+    """Reset all player's data for the next round.
+
+        set cards to an empty list
+        set cards_total to 0
+        set bet to 0
+        :param players: 2D dictionary of the player's data
+        :return:  n/a
+    """
+    for player in players:
+        players[player] = {
+            'cash': 1.0,
+            'cards': [],
+            'cards_total': 0,
+            'bet': 0.25
+        }
+
 def main():
 
     players = {}  # We start with an empty dictionary
