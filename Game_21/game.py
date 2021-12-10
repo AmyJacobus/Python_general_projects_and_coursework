@@ -194,7 +194,7 @@ def display_rounds(players):
     print('=' * LINE_LENGTH)
     print()
 
-    for player, player_data
+    for player, player_data in players:
         print(f'{player}\'s balance is')
 
 
@@ -232,12 +232,13 @@ def main():
     cards_nr_generator1 = random.randint(1, 10)
     cards_nr_generator2 = random.randint(1, 10)
 
-    display_msg()
-    get_players(players)
-    # START WHILE PLAY AGAIN HERE.
-    play(players, cards_nr_generator1, cards_nr_generator2)
-    dealers_card_total = dealer(players)  # storing data in variable
-    display_winners(players, dealers_card_total)
+    play_rounds(players)
+    # display_msg()
+    # get_players(players)
+    # # START WHILE PLAY AGAIN HERE.
+    # play(players, cards_nr_generator1, cards_nr_generator2)
+    # dealers_card_total = dealer(players)  # storing data in variable
+    # display_winners(players, dealers_card_total)
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
