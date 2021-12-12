@@ -182,7 +182,7 @@ def display_winners(players, dealers_cards_total):
         else:
             print('Dealer wins!')  # should he be winning??
 
-def display_rounds(players):
+def display_round_summary(players):
     """
     This function will display the round summary and how much money each player has currently.
     :param players: 2D dictionary of all player's data
