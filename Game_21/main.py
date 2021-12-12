@@ -35,6 +35,7 @@ def main():
     while True:
 
         g.play_rounds(players)
+        g.display_round_summary(players)
         choice = input('do you want to play again?  (y=yes, n=no): ').lower()
         if choice in ['y', 'yes']:
             g.setup_new_round(players)
@@ -44,7 +45,7 @@ def main():
 
     print('Thank you for playing, hope you had fun!')
 
-    g.display_round_summary(players) # Display the game report
+    g.display_round_summary(players)  # Display the game report
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main
