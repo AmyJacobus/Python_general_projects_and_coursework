@@ -182,6 +182,7 @@ def display_winners(players, dealers_cards_total):
         else:
             print('Dealer wins!')  # should he be winning??
 
+
 def display_round_summary(players):
     """
     This function will display the round summary and how much money each player has currently.
@@ -194,6 +195,7 @@ def display_round_summary(players):
     print('=' * LINE_LENGTH)
     print()
 
+    # NEEED HELP UNPACKING THE DATA FOR DISPLAY
     for player, player_data in players:
         print(f'{player}\'s balance is')
 
@@ -203,7 +205,7 @@ def play_rounds(players):
     cards_nr_generator1 = random.randint(1, 10)
     cards_nr_generator2 = random.randint(1, 10)
 
-    setup_new_round(players)
+    # setup_new_round(players)
     play(players, cards_nr_generator1, cards_nr_generator2)
     dealers_card_total = dealer(players)  # storing data in variable
     display_winners(players, dealers_card_total)

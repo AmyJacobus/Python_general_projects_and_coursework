@@ -33,12 +33,12 @@ def main():
     g.get_players(players) # get the player data
 
     while True:
-        g.play_rounds(players)
 
+        g.play_rounds(players)
         choice = input('do you want to play again?  (y=yes, n=no): ').lower()
         if choice in ['y', 'yes']:
-            g.play_rounds(players)
-            return True
+            g.setup_new_round(players)
+            continue
         elif choice in ['n', 'no']:
             break
 
