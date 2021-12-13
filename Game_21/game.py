@@ -20,6 +20,7 @@ __status__ = 'Development'
 
 
 import random
+import validation as v
 
 
 LINE_LENGTH = 100
@@ -241,6 +242,7 @@ def setup_new_round(players):
             'cards_total': 0,
             'bet': 0.25
         }
+
 
 def main():
 

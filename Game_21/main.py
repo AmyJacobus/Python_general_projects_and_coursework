@@ -16,6 +16,7 @@ __status__ = 'Development'
 
 import random  # Imports random so we it can be used to generate random numbers
 import game as g  # Imports the game module as g to be used in this main module
+import validation as v
 
 
 def main():
@@ -41,7 +42,7 @@ def main():
 
         g.play_rounds(players)
         g.display_round_summary(players)
-        choice = input('do you want to play again?  (y=yes, n=no): ').lower()
+        choice = v.get_yes_no(prompt='do you want to play again?  (y=yes, n=no): ').lower()
         if choice in ['y', 'yes']:
             g.setup_new_round(players)
             continue
