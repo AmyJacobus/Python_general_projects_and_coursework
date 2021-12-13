@@ -3,7 +3,8 @@
 """
 Programmers: Ammishaddai Jacobus
 Date: Dec 16, 2021
-Description:
+Description: This is the main module. In here we import all the other modules that we want to run, and add all of them
+in the main menu to run the whole game and the while loop to play multiple rounds in the game.
 """
 
 # Authorship information # Done by Amy

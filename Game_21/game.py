@@ -3,8 +3,12 @@
 
 """
 Programmers: Ammishaddai Jacobus
-Date: Dec 7, 2021
-Description:
+Date: Dec 16, 2021
+Description: This is the game module. Different functions to run Game 21. Displaying the message function, get the
+players function to get all the players, play function to actually play the round, dealer function to play deal to the
+dealer if there are still players in the game that is, a function to display all the winners, a function to display
+the each round summary, a function to play each round and a function for setup new round. All these functions make
+the game 21 run properly.
 """
 
 
@@ -22,9 +26,13 @@ LINE_LENGTH = 100
 
 
 def display_msg():
+    """
+    This function display the welcome message and game rules to the user.
+    :return: n/a
+    """
     print('$' * LINE_LENGTH)
     print()
-    print('                                       WELCOME TO GAME 21')  # HOW TO STRING FORMAT
+    print('                                    WELCOME TO GAME 21')
     print()
     print('$' * LINE_LENGTH)
     print()
