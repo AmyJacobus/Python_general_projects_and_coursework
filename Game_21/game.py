@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 """
 Programmers: Ammishaddai Jacobus
 Date: Dec 7, 2021
@@ -195,9 +196,14 @@ def display_round_summary(players):
     print('=' * LINE_LENGTH)
     print()
 
-    # NEEED HELP UNPACKING THE DATA FOR DISPLAY
-    for player, player_data in players:
-        print(f'{player}\'s balance is')
+    # NEED HELP UNPACKING THE DATA FOR DISPLAY
+    for player, player_data in players.items():
+
+        cash, cards, cards_total, bet = player_data.values()
+
+        print('End of Round Summary')
+        print('=' * LINE_LENGTH)
+        # print(f'{player:<10s}\'s balance is ${cash:>6.2s}')
 
 
 def play_rounds(players):

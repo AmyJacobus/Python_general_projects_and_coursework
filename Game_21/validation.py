@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
 """
-Programmers:
-Date:
+Programmers: Ammishaddai Jacobus
+Date: Dec 12, 2021
 Description:
 """
+
 
 # Authorship information # Done by Amy
 __author__ = 'Ammishaddai Jacobus'

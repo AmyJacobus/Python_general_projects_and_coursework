@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """
-Programmers:
-Date:
+Programmers: Ammishaddai Jacobus
+Date: Dec 16, 2021
 Description:
 """
 
@@ -12,18 +12,22 @@ __version__ = '1.0'
 __date__ = 'NEED TO BE DONE'
 __status__ = 'Development'
 
-import random
-import game as g
 
-
-def play_game():
-    """
-    Play game is the main outer while loop to keep playing rounds
-    return: n/a
-    """
+import random  # Imports random so we it can be used to generate random numbers
+import game as g  # Imports the game module as g to be used in this main module
 
 
 def main():
+    """
+    This function starts with the an empty player dictionary, that later gets populated with all the players and
+    their data. The main runs the functions to display the game intro message, the function to get all the players,
+    then it uses a while true, which runs the game round, displays the game round summary at the end of each round
+    checks if the user wants to play again, if they do want to play again, it clears everything and add starts the
+    round again with the original players data. Once the player says no to play any more round, it will break out
+    of the while loop and thank the player for playing and that hopefully they had fun. And displays the summary
+    of that last round.
+    :return: n/a
+    """
 
     players = {}  # We start with an empty dictionary
     cards_nr_generator1 = random.randint(1, 10)
