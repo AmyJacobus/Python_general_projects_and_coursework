@@ -205,17 +205,25 @@ def display_round_summary(players):
     print('=' * LINE_LENGTH)
     print()
 
+    print('End of Round Summary')
+    print('=' * LINE_LENGTH)
     # NEED HELP UNPACKING THE DATA FOR DISPLAY
     for player, player_data in players.items():
 
         cash, cards, cards_total, bet = player_data.values()
 
-        print('End of Round Summary')
-        print('=' * LINE_LENGTH)
-        # print(f'{player:<10s}\'s balance is ${cash:>6.2s}')
+        print(f'{player:<5s} balance is ${cash}')
 
+    print()
 
 def play_rounds(players):
+    """
+    This module basically is one round, this module runs all the rounds every time the user wants to play a new round.
+    It plays the cards for each players, it checks if there are still players that havent reached 21 or lost, and if so,
+    it will deal cards to the dealer and at the end display the winner of the round.
+    :param players: This is the dictionary paramater that this function needs to run
+    :return: n/a
+    """
 
     cards_nr_generator1 = random.randint(1, 10)
     cards_nr_generator2 = random.randint(1, 10)
@@ -227,13 +235,9 @@ def play_rounds(players):
 
 
 def setup_new_round(players):
-    """Reset all player's data for the next round.
-
-        set cards to an empty list
-        set cards_total to 0
-        set bet to 0
-        :param players: 2D dictionary of the player's data
-        :return:  n/a
+    """
+    Basically this function is suppose to works as some sort of clear, back to default command. Basically it defaults
+    all the player's data. Like it's cash goes back to 1.0 and cards_total to 0.
     """
     for player in players:
         players[player] = {
@@ -245,6 +249,10 @@ def setup_new_round(players):
 
 
 def main():
+    """
+    This is the main function in this module that we use for testing that all the functions in the module works properly.
+    :return: n/a
+    """
 
     players = {}  # We start with an empty dictionary
     cards_nr_generator1 = random.randint(1, 10)
