@@ -44,7 +44,7 @@ def main():
         g.display_round_summary(players)
         choice = v.get_yes_no(prompt='do you want to play again?  (y=yes, n=no): ').lower()
         if choice in ['y', 'yes']:
-            g.setup_new_round(players)
+            # g.setup_new_round(players)
             continue
         elif choice in ['n', 'no']:
             break

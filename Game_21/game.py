@@ -102,14 +102,18 @@ def play(players, cards_nr_generator1, cards_nr_generator2):
         player_data['cards'] = cards
         print(f'Cards:', *cards, sep=" ")
 
+        initial_bet1 = 0.25
         while True:
             cards_total = sum(cards)
             player_data['cards_total'] = cards_total
             if cards_total > 21:  # CHECKS IF PLAYER HAS EXCEEDED THE GAME LIMIT AND GET THEM OUT OF THE GAME IF SO
                 print(f'{player} has exceeded 21! You lose!')
+                loss = cash - 0.25
+                player_data['cash'] = loss
+                print()
                 break
 
-            choice = input('Do you want another card? (y=yes, n= no): ').lower()
+            choice = v.get_yes_no(prompt='Do you want another card? (y=yes, n= no): ').lower()
             if choice in ['y', 'yes']:
                 cards_nr_generator = random.randint(1, 10)
                 cards.append(cards_nr_generator)
@@ -123,11 +127,13 @@ def play(players, cards_nr_generator1, cards_nr_generator2):
             continue
 
         initial_bet = 0.25
+        print()
         bet = input('Do you want to double your 25 cent bet? (y=yes, n=no): ')
         if bet in ['y', 'yes']:
+            print(f'Bet doubled for {player}')
             initial_bet += 0.25
         player_data['bet'] = initial_bet
-        print(player, player_data)
+        print()
 
 
 def dealer(players):
@@ -200,14 +206,10 @@ def display_round_summary(players):
     :return: number of players who still have cash
     """
 
+    print()
     print('End of Round Summary')
-    print()
     print('=' * LINE_LENGTH)
-    print()
 
-    print('End of Round Summary')
-    print('=' * LINE_LENGTH)
-    # NEED HELP UNPACKING THE DATA FOR DISPLAY
     for player, player_data in players.items():
 
         cash, cards, cards_total, bet = player_data.values()
@@ -234,18 +236,18 @@ def play_rounds(players):
     display_winners(players, dealers_card_total)
 
 
-def setup_new_round(players):
-    """
-    Basically this function is suppose to works as some sort of clear, back to default command. Basically it defaults
-    all the player's data. Like it's cash goes back to 1.0 and cards_total to 0.
-    """
-    for player in players:
-        players[player] = {
-            'cash': 1.0,
-            'cards': [],
-            'cards_total': 0,
-            'bet': 0.25
-        }
+# def setup_new_round(players):
+#     """
+#     Basically this function is suppose to works as some sort of clear, back to default command. Basically it defaults
+#     all the player's data. Like it's cash goes back to 1.0 and cards_total to 0.
+#     """
+#     for player in players:
+#         players[player] = {
+#             'cash': 1.0,
+#             'cards': [],
+#             'cards_total': 0,
+#             'bet': 0.25
+#         }
 
 
 def main():
