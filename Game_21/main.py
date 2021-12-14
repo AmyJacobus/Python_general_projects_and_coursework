@@ -41,17 +41,20 @@ def main():
     while True:
 
         g.play_rounds(players)
-        g.display_round_summary(players)
-        choice = v.get_yes_no(prompt='do you want to play again?  (y=yes, n=no): ').lower()
-        if choice in ['y', 'yes']:
-            # g.setup_new_round(players)
-            continue
-        elif choice in ['n', 'no']:
+        # g.display_round_summary(players)
+        cash = g.display_round_summary(players)
+        if cash > 0.0:
+            choice = v.get_yes_no(prompt='do you want to play again?  (y=yes, n=no): ').lower()
+            if choice in ['y', 'yes']:
+                # g.setup_new_round(players)
+                continue
+            elif choice in ['n', 'no']:
+                break
+        else:
+            print('All players are out of funds!')
+            print('Better luck next time!')
+            print('Thank you for playing, hope you had fun!')
             break
-
-    print('Thank you for playing, hope you had fun!')
-
-    g.display_round_summary(players)  # Display the game report
 
 
 if __name__ == "__main__":  # Basically if the name of the module is equal to main

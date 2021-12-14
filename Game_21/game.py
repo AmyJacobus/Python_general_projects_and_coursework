@@ -80,6 +80,15 @@ def get_players(players):
 
 
 def play(players, cards_nr_generator1, cards_nr_generator2):
+    """
+    This function basically runs the main play part of the game. If checks if players have cash to play a round at all.
+    If so, it deals cards to the players, until they exceed 21 or decide to hold. Once they hold, it checks if they want
+    to double their bet, if not, the process of this function ends there.
+    :param players: Makes use of the paramater dictionary data from other functions
+    :param cards_nr_generator1: Makes use of the this data to generate random card numbers
+    :param cards_nr_generator2:  Makes use of the this data to generate random card numbers
+    :return: n/a
+    """
     print()
     print('=' * LINE_LENGTH)
     print('Starting round...')
@@ -90,7 +99,7 @@ def play(players, cards_nr_generator1, cards_nr_generator2):
         cash, cards, cards_total, bet = player_data.values()
 
         if cash < 0.25:
-            print(f'{player} is out of funds, so out of the game!')
+            print(f'{player} is out ')
             continue
 
         print(f'Dealing to {player}')
@@ -137,6 +146,13 @@ def play(players, cards_nr_generator1, cards_nr_generator2):
 
 
 def dealer(players):
+    """
+    This function does the process of dealing to the dealer. It first checks if the players have not exceeded 21,if they
+    have, the dealer wins. If the number of players still in the game is 0, means the dealer wins too. Otherwise cards
+    are dealt to the dealer until he reaches 21 or goes over 21, which in that case he loses.
+    :param players: This functions makes use of the paramater players data
+    :return: n/a
+    """
 
     num_players_out = 0
     highest_hand = 0
@@ -152,6 +168,7 @@ def dealer(players):
 
     if num_players_out == len(players):
         print('All players exceeded 21, so dealer automatically WINS!')
+        print()
         return 21  # Return 21 because the dealer wins, we need the data for later
 
     print()
@@ -177,6 +194,14 @@ def dealer(players):
 
 
 def display_winners(players, dealers_cards_total):
+    """
+    This function display the winners of each round. It starts by checking is the players have enough funds to play
+    a round, if they player cards are over 21, dealer wins. If the players cards are below 21 or equal t0 21, it increase
+    the winner and add the winning funds to the players total and declare the player as the winner.
+    :param players: Uses the players dictionary
+    :param dealers_cards_total: Takes the dealers cards total to use in this function
+    :return: n/a
+    """
 
     total_winners = 0
 
@@ -185,7 +210,6 @@ def display_winners(players, dealers_cards_total):
         cash, cards, cards_total, bet = player_data.values()
 
         if cash < 0.25:
-            print(f'{player} is out of funds, so out of the game!')
             continue
 
         if dealers_cards_total > 21:
@@ -196,7 +220,7 @@ def display_winners(players, dealers_cards_total):
             else:
                 player_data['cash'] -= bet
         else:
-            print('Dealer wins!')  # should he be winning??
+            print('Dealer wins!')
 
 
 def display_round_summary(players):
@@ -218,6 +242,8 @@ def display_round_summary(players):
 
     print()
 
+    return cash
+
 def play_rounds(players):
     """
     This module basically is one round, this module runs all the rounds every time the user wants to play a new round.
@@ -236,18 +262,18 @@ def play_rounds(players):
     display_winners(players, dealers_card_total)
 
 
-# def setup_new_round(players):
-#     """
-#     Basically this function is suppose to works as some sort of clear, back to default command. Basically it defaults
-#     all the player's data. Like it's cash goes back to 1.0 and cards_total to 0.
-#     """
-#     for player in players:
-#         players[player] = {
-#             'cash': 1.0,
-#             'cards': [],
-#             'cards_total': 0,
-#             'bet': 0.25
-#         }
+def setup_new_round(players):
+    """
+    Basically this function is suppose to works as some sort of clear, back to default command. Basically it defaults
+    all the player's data. Like it's cash goes back to 1.0 and cards_total to 0.
+    """
+    for player in players:
+        players[player] = {
+            'cash': 1.0,
+            'cards': [],
+            'cards_total': 0,
+            'bet': 0.25
+        }
 
 
 def main():
