@@ -50,13 +50,12 @@ def display_msg():
 
 
 def get_players(players):
-    # Create a dictionary or pass an empty dictionary
-    # while loop
-    # Add funds etc to the dictionary
-
-    # players = {}  # We start with an empty dictionary
-
-    # How do we add to the dictionary with while loops? SINCE DEBBIES EXAMPLE IS LIKE A 2D/3D dictionary
+    """
+    This function gets the players name and add them to the dictionary and gives them default values for cash, cards,
+    cards_total and bet.
+    :param players:  It takes in the empty dictionary players
+    :return:  It returns the dictionary players back to the system, so other functions can use it
+    """
     print()
     print('=' * LINE_LENGTH)
     print('Now lets get this game setup.  Who is all playing?')
